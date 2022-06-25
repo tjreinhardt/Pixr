@@ -122,6 +122,11 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope('currentUser').findByPk(user.id);
   };
 
+  User.associate = function(models) {
+    User.hasMany(models.Image, {foreignKey: 'userId'});
+    // User.hasMany(models.Collection, {foreignKey: 'userId'});
+  }
+
 
   return User;
 };
