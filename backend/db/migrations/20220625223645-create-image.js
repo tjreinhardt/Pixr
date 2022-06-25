@@ -15,7 +15,6 @@ module.exports = {
       },
       collectionId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         unique: true
       },
       imageUrl: {
