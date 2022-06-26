@@ -1,0 +1,14 @@
+.welcome-to-sweetr {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.login-signup-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
