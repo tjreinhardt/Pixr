@@ -8,6 +8,8 @@ const imageValidations = require('../../validations/images')
 
 const router = express.Router();
 
+
+// get all images
 router.get(
   '/',
   asyncHandler(async function (req, res) {
@@ -16,6 +18,7 @@ router.get(
   })
 );
 
+// get single, target image
 router.get(
   '/:id',
   asyncHandler(async function (req, res) {
@@ -25,6 +28,21 @@ router.get(
 );
 
 
+// add image
+router.post(
+  '/', imageValidations.validateCreate,
+  asyncHandler(async function (req, res, next) {
+    try {
+      const newImage = await Image.create(req.body);
+      return res.json(newImage);
+    } catch (err) {
+      next(err);
+    }
+  })
+);
+
+
+// edit image
 router.put(
   '/:id', imageValidations.validateUpdate,
   asyncHandler(async function (req, res, next) {
@@ -38,6 +56,7 @@ router.put(
   })
 );
 
+// delete image
 router.delete(
   './:id',
   asyncHandler(async function (req, res) {
