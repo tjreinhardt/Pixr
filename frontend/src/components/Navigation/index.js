@@ -26,6 +26,7 @@ function Navigation({ isLoaded }) {
     <div className='nav-wrapper'>
       <ul>
         <li>
+          <NavLink className="nav-buttons" to="/images">Browse</NavLink>
           <NavLink className="nav-buttons" exact to="/">Home</NavLink>
           {isLoaded && sessionLinks}
         </li>

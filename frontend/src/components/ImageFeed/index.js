@@ -3,10 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getImages } from '../../store/images';
 
-import './ImageFinder.css'
+import './ImageFeed.css'
 
 
-const ImageFinder = () => {
+const ImageFeed = () => {
   const dispatch = useDispatch();
 
   const images = useSelector(state => {
@@ -41,4 +41,4 @@ const ImageFinder = () => {
   );
 };
 
-export default ImageFinder;
+export default ImageFeed;

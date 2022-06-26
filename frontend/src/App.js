@@ -4,8 +4,9 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import ImageFinder from "./components/ImageFinder";
+import ImageFeed from "./components/ImageFeed";
 import LandingPage from "./components/LandingPage";
+import SelectedImage from "./components/SelectedImage";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,7 +21,10 @@ function App() {
       {isLoaded && (
         <Switch>
           <Route path="/images" exact>
-            <ImageFinder />
+            <ImageFeed />
+          </Route>
+          <Route path={`/images/:imageId`}>
+            <SelectedImage />
           </Route>
           <Route path="/signup">
             <SignupFormPage />

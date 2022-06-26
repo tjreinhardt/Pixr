@@ -57,6 +57,7 @@ function SignupFormPage() {
         <input
           type="password"
           value={password}
+          placeholder="Please enter a password"
           onChange={(e) => setPassword(e.target.value)}
           required
         />
@@ -66,11 +67,12 @@ function SignupFormPage() {
         <input
           type="password"
           value={confirmPassword}
+          placeholder="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
       </label>
-      <button type="submit">Sign Up</button>
+      <button className="signup-form-buttons" type="submit">Sign Up</button>
     </form>
   );
 }
