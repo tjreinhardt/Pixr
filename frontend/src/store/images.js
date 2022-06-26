@@ -21,10 +21,10 @@ const removeImage = imageId => ({
   imageId
 });
 
-const editImage = image => ({
-  type: UPDATE_ONE,
-  image
-})
+// const editImage = image => ({
+//   type: UPDATE_ONE,
+//   image
+// })
 
 export const getImages = () => async dispatch => {
   const response = await csrfFetch(`/api/images`);

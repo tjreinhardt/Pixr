@@ -3,8 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { findImage, deleteImage } from '../../store/images'
-// import EditImageForm from '../EditImageForm';
+import { findImage } from '../../store/images';
 
 import './SelectedImage.css';
 

@@ -23,7 +23,7 @@ function App() {
           <Route path="/images" exact>
             <ImageFeed />
           </Route>
-          <Route path={`/images/:imageId`}>
+          <Route path={"/images/:imageId"}>
             <SelectedImage />
           </Route>
           <Route path="/signup">

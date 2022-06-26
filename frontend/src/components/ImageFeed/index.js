@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { getImages } from '../../store/images';
+import AddImage from './../AddImage';
 
 import './ImageFeed.css'
 
@@ -37,6 +38,7 @@ const ImageFeed = () => {
           );
         })}
       </ div>
+      <AddImage />
     </main>
   );
 };

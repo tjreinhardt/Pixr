@@ -4,7 +4,6 @@ const { Image } = require('../../db/models');
 
 const imageValidations = require('../../validations/images')
 
-// const imageValidations = require()
 
 const router = express.Router();
 
