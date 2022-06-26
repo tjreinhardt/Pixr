@@ -1,4 +1,8 @@
-/* #image-container {} */
+#image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
 .browser-image {
   background-size: contain;
