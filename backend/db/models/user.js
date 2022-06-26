@@ -1,6 +1,8 @@
 'use strict';
 const { Validator } = require('sequelize');
 const bcrypt = require('bcryptjs');
+const { Image } = require('./image')
+const { Collection } = require('./collection')
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
@@ -48,8 +50,9 @@ module.exports = (sequelize, DataTypes) => {
     });
 
   User.associate = function (models) {
-    // associations can be defined here
-  };
+    User.hasMany(models.Image, { foreignKey: 'userId' });
+    // User.hasMany(models.Collection, {foreignKey: 'userId'});
+  }
 
   /*
   Define an instance method User.prototype.toSafeObject in the
@@ -122,10 +125,7 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope('currentUser').findByPk(user.id);
   };
 
-  User.associate = function(models) {
-    User.hasMany(models.Image, {foreignKey: 'userId'});
-    // User.hasMany(models.Collection, {foreignKey: 'userId'});
-  }
+
 
 
   return User;
