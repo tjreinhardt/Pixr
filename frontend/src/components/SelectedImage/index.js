@@ -31,9 +31,8 @@ export const SelectedImage = () => {
   return (
     <div className='selected-image-container'>
       <div className='selected-image-content'>
-        <h4> {targetImage.imageTitle} </h4>
+        <h2> {targetImage.imageTitle} </h2>
         <div>
-          <img src={targetImage.imageUrl} />
           <img src={targetImage.imageUrl} />
         </div>
         <div>
