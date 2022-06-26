@@ -9,15 +9,15 @@ import { findImage, deleteImage } from '../../store/images'
 import './SelectedImage.css';
 
 export const SelectedImage = () => {
-  const dispatch = useDispatch();
-  const history = useHistory();
   const { imageId } = useParams();
   const images = useSelector(state => state.images)
+  const dispatch = useDispatch();
+  const history = useHistory();
   const targetImage = images[imageId]
   console.log("----------------------", targetImage)
 
   useEffect(() => {
-    async function fetchImages() {
+    async function fetchImage() {
       try {
         await dispatch(findImage(imageId));
       } catch (err) {
@@ -25,15 +25,15 @@ export const SelectedImage = () => {
         history.push("/images")
       }
     }
-    fetchImages();
-  }, [dispatch, imageId, useHistory]);
+    fetchImage();
+  }, [dispatch, imageId, history]);
 
   return (
     <div className='selected-image-container'>
       <div className='selected-image-content'>
         <h2> {targetImage.imageTitle} </h2>
         <div>
-          <img src={targetImage.imageUrl} />
+          <img src={targetImage.imageUrl} alt="" />
         </div>
         <div>
           <p>{targetImage.imageDescription}</p>
