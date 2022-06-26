@@ -1,0 +1,9 @@
+/* #image-container {} */
+
+.browser-image {
+  background-size: contain;
+  border: 5px solid #DFDFDF;
+  height: 300px;
+  margin: 5px;
+  width: 300px;
+}
