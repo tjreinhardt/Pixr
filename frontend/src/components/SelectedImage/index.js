@@ -2,7 +2,8 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { findImage } from '../../store/images';
 
 import './SelectedImage.css';
@@ -10,15 +11,15 @@ import './SelectedImage.css';
 export const SelectedImage = () => {
   const { imageId } = useParams();
   const images = useSelector(state => state.images)
+  const targetImage = images[imageId]
   const dispatch = useDispatch();
   const history = useHistory();
-  const targetImage = images[imageId]
-  console.log("----------------------", targetImage)
+  console.log("----------------------", images[imageId])
 
   useEffect(() => {
     async function fetchImage() {
       try {
-        await dispatch(findImage(imageId));
+        dispatch(findImage(imageId));
       } catch (err) {
         console.log("Cannot find this image :(")
         history.push("/images")
