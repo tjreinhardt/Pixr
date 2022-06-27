@@ -26,7 +26,7 @@ const ImageFeed = () => {
   }
   return (
     <main>
-      <div id="image-container">
+      <div className="image-container">
         {images.map((image) => {
           return (
             <NavLink key={image.id} to={`/images/${image.id}`}>

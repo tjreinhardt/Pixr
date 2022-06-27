@@ -1,13 +1,19 @@
-#image-container {
+.image-container {
   display: flex;
-  flex-direction: row;
+  height: inherit;
+  width: 100%;
   flex-wrap: wrap;
+  /* justify-content: center; */
 }
 
 .browser-image {
-  background-size: contain;
-  border: 5px solid #DFDFDF;
-  height: 300px;
+  display: flex;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
   margin: 5px;
-  width: 300px;
+  min-width: 30vmin;
+  min-height: 25vmin;
+  /* max-width: 50vmax;
+  max-height: 50vmax; */
 }

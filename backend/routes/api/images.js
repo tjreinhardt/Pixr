@@ -1,6 +1,6 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
-const { Image } = require('../../db/models/image');
+const { Image } = require('../../db/models');
 
 const imageValidations = require('../../validations/images')
 
@@ -11,7 +11,7 @@ const router = express.Router();
 // get all images
 router.get(
   '/',
-  asyncHandler(async function (_req, res) {
+  asyncHandler(async function (req, res) {
     const images = await Image.findAll();
     return res.json(images);
   })
@@ -22,7 +22,7 @@ router.get(
   '/:id',
   asyncHandler(async function (req, res) {
     const image = await Image.findByPk(req.params.id);
-    return res.json(image);
+    return res.json(image)
   })
 );
 
