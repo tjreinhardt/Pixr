@@ -17,3 +17,8 @@
 .username-dropdown {
   font-size: 24px;
 }
+
+.nav-buttons {
+  transition: all 150ms ease-in-out;
+  transition-duration: 120ms;
+}

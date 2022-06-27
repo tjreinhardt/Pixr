@@ -1,8 +1,11 @@
 .image-container {
   display: flex;
-  height: inherit;
+  /* height: inherit; */
   width: 100%;
-  flex-wrap: wrap;
+  border: 1px solid black;
+  /* width: fit-content; */
+  /* flex-wrap: wrap; */
+  flex-flow:wrap;
   /* justify-content: center; */
 }
 
@@ -11,9 +14,9 @@
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 5px;
-  min-width: 30vmin;
-  min-height: 25vmin;
+  margin: 1px;
+  min-width: 32.35vmin;
+  min-height: 19vmin;
   /* max-width: 50vmax;
   max-height: 50vmax; */
 }

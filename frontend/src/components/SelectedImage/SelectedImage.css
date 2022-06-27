@@ -10,3 +10,14 @@
   width: 50vmax;
   height: 200px;
 }
+
+.selected-image-description {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.selected-image-title {
+  display: flex;
+  font-size: 40px;
+  align-self: flex-start;
+}

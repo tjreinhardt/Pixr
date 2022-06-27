@@ -31,12 +31,12 @@ export const SelectedImage = () => {
   return (
     <div className='selected-image-container'>
       <div className='selected-image-content'>
-        <h2> {targetImage.imageTitle} </h2>
+        <h2 className='selected-image-title'> {targetImage.imageTitle} </h2>
         <div>
           <img src={targetImage.imageUrl} alt="" />
         </div>
         <div>
-          <p>{targetImage.imageDescription}</p>
+          <p className="selected-image-description">{targetImage.imageDescription}</p>
         </div>
       </div>
     </div>

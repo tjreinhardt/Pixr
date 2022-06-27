@@ -15,10 +15,7 @@ const ImageFeed = () => {
   });
 
   useEffect(() => {
-    async function fetchData() {
-      await dispatch(getImages());
-    }
-    fetchData();
+      dispatch(getImages());
   }, [dispatch])
 
   if (!images.length) {
