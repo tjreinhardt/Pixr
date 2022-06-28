@@ -43,7 +43,7 @@ router.post(
 
 // // edit image
 router.put(
-  '/:id', imageValidations.validateUpdate,
+  '/:id/edit', imageValidations.validateUpdate,
   asyncHandler(async function (req, res, next) {
     try {
       const updatedImage = await Image.findByPk(req.params.id);

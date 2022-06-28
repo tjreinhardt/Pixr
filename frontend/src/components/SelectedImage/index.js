@@ -55,6 +55,7 @@ export const SelectedImage = () => {
     return null;
   }
 
+  const auth = sessionUser?.imageId === images?.imageId;
   return (
     <div className='target-image-container'>
       <div className='target-image-content'>
@@ -64,12 +65,12 @@ export const SelectedImage = () => {
         </div>
         <div>
           <p className="target-image-description">{targetImage.imageDescription}</p>
-          {sessionUser?.imageId === images?.userId && (
+          {auth && (
             <>
               <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button>
             </>
           )}
-          {sessionUser?.imageId === images?.userId && (
+          {auth && (
             <>
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
             </>

@@ -62,7 +62,7 @@ export const createImage = (Image) => async dispatch => {
 }
 
 export const modifyImage = (image) => async dispatch => {
-  const response = await csrfFetch(`/api/images/${image.id}`, {
+  const response = await csrfFetch(`/api/images/${image.id}/edit`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(image),
