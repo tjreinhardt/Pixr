@@ -1,22 +1,22 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
-// import * as sessionActions from '../../store/session';
+import * as sessionActions from '../../store/session';
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
-  // const history = useHistory();
-  // const dispatch = useDispatch();
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-  // const handleSubmit = () => {
-  //   const credential = 'demo@user.io'
-  //   const password = 'password'
-  //   return dispatch(sessionActions.login({ credential, password }))
-  //     .then(() => history.push('/images'))
-  // }
+  const handleSubmit = () => {
+    const credential = 'demo@user.io'
+    const password = 'password'
+    return dispatch(sessionActions.login({ credential, password }))
+      .then(() => history.push('/images'))
+  }
 
   let sessionLinks;
   if (sessionUser) {
@@ -28,6 +28,7 @@ function Navigation({ isLoaded }) {
       <>
         <LoginFormModal />
         <NavLink className="nav-buttons" to="/signup">Sign Up</NavLink>
+        <button className='nav-buttons' onClick={() => handleSubmit()}>Demo User</button>
       </>
     );
   }
