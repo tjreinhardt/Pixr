@@ -15,7 +15,7 @@ const ImageFeed = () => {
   });
 
   useEffect(() => {
-      dispatch(getImages());
+    dispatch(getImages());
   }, [dispatch])
 
   if (!images.length) {

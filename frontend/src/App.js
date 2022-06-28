@@ -8,7 +8,7 @@ import ImageFeed from "./components/ImageFeed";
 import LandingPage from "./components/LandingPage";
 import SelectedImage from "./components/SelectedImage";
 import LoginFormPage from "./components/LoginFormPage";
-import AddImage from "./components/AddImage";
+// import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
 // import DemoLogin from "./components/LoginFormPage/DemoLogin";
 // import load from "./store/images"
@@ -43,9 +43,6 @@ function App() {
           </Route>
           <Route path="/login">
             <LoginFormPage />
-          </Route>
-          <Route path="/create">
-            <AddImage />
           </Route>
           <Route path="/">
             <LandingPage />
