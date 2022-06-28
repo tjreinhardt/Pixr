@@ -55,15 +55,15 @@ router.put(
   })
 );
 
-// // delete image
-// router.delete(
-//   './:id',
-//   asyncHandler(async function (req, res) {
-//     const image = await Image.findByPk(req.params.id);
-//     await image.destroy();
-//     return res.json(req.body);
-//   })
-// )
+// delete image
+router.delete(
+  '/:id',
+  asyncHandler(async function (req, res) {
+    const image = await Image.findByPk(req.params.id);
+    await image.destroy();
+    return res.json(req.body);
+  })
+)
 
 
 

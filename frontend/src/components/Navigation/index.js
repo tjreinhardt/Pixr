@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
+import AddImage from "../AddImage"
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -28,6 +29,7 @@ function Navigation({ isLoaded }) {
         <li>
           <NavLink className="nav-buttons" to="/images">Browse</NavLink>
           <NavLink className="nav-buttons" exact to="/">Home</NavLink>
+          <NavLink className="nav-buttons" to="/images/upload">Upload</NavLink>
           {isLoaded && sessionLinks}
         </li>
       </ul>

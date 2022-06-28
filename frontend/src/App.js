@@ -8,6 +8,7 @@ import ImageFeed from "./components/ImageFeed";
 import LandingPage from "./components/LandingPage";
 import SelectedImage from "./components/SelectedImage";
 import LoginFormPage from "./components/LoginFormPage";
+import AddImage from "./components/AddImage";
 // import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
 // import DemoLogin from "./components/LoginFormPage/DemoLogin";
@@ -40,6 +41,9 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/upload">
+            <AddImage />
           </Route>
           <Route path="/login">
             <LoginFormPage />

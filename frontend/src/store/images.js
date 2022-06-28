@@ -118,20 +118,14 @@ const imageReducer = (state = initialState, action) => {
         }
       };
     }
+    case UPDATE_ONE: {
+      return { ...state, [action.image.id]: action.image };
+    }
     case REMOVE_ONE: {
       const newState = { ...state };
       delete newState[action.imageId]
       return newState;
     }
-    // case UPDATE_ONE: {
-    //   return {
-    //     ...state,
-    //     [action.image.id]: {
-    //       ...state[action.image.id],
-    //       ...action.image,
-    //     }
-    //   };
-    // }
     default: {
       return state;
     }
