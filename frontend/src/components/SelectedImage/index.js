@@ -17,6 +17,8 @@ export const SelectedImage = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  const [showEditButton, setShowEditButton] = useState(false);
+  const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
@@ -30,6 +32,18 @@ export const SelectedImage = () => {
     }
     fetchImage();
   }, [dispatch, imageId, history]);
+
+  useEffect(() => {
+    if (images && images.userId === sessionUser.id) {
+      setShowEditButton(true);
+    }
+  }, [images, sessionUser.id])
+
+  useEffect(() => {
+    if (images && images.userId === sessionUser.id) {
+      setShowDeleteButton(true);
+    }
+  }, [images, sessionUser.id])
 
 
   // const onEdit = (e) => {
