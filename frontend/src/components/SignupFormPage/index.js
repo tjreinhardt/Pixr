@@ -85,7 +85,9 @@ function SignupFormPage() {
         </label>
         <button className="signup-form-buttons" type="submit">Sign Up</button>
       </form>
-      <button className='nav-buttons' onClick={() => handleDemo()}>Demo User</button>
+      <div className="demo-signup-div">
+        <button className='nav-buttons' onClick={() => handleDemo()}>Demo User</button>
+      </div>
     </div>
   );
 }
