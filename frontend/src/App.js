@@ -25,10 +25,12 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const user = useSelector(state => state.session.user)
+  const user = useSelector((state) => state.session.user)
   useEffect(() => {
     dispatch(getUserCollections(user.id))
   }, [dispatch, user])
+
+
 
   return (
     <>
@@ -38,25 +40,25 @@ function App() {
           <Route path="/images" exact>
             <ImageFeed />
           </Route>
-          <Route path={"/images/:imageId"}>
+          <Route path={"/images/:imageId"} exact>
             <SelectedImage />
           </Route>
-          <Route path="/collections">
+          <Route path="/collections" exact>
             <GetCollections />
           </Route>
-          <Route path="/newCollection">
+          <Route path="/newCollection" exact>
             <CollectionForm />
           </Route>
-          <Route path="/signup">
+          <Route path="/signup" exact>
             <SignupFormPage />
           </Route>
-          <Route path="/upload">
+          <Route path="/upload" exact>
             <AddImage />
           </Route>
-          <Route path="/login">
+          <Route path="/login" exact>
             <LoginFormPage />
           </Route>
-          <Route path="/">
+          <Route path="/" exact>
             <LandingPage />
           </Route>
         </Switch>
