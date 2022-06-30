@@ -11,7 +11,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import AddImage from "./components/AddImage";
 import { getUserCollections } from "./store/collections"
 import GetCollections from "./components/Collections/GetCollections";
-import CollectionForm from './components/Collections/CollectionForm';
+import AddToCollectionButton from "./components/Collections/AddToCollection";
 // import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
 // import DemoLogin from "./components/LoginFormPage/DemoLogin";
@@ -20,17 +20,21 @@ import CollectionForm from './components/Collections/CollectionForm';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  const user = useSelector((state) => state.session.user)
   useEffect(() => {
-    dispatch(getUserCollections(user.id))
+    if (user) dispatch(getUserCollections(user.id))
   }, [dispatch, user])
 
 
+
+  // useEffect(() => {
+  //   if (user) dispatch(load())
+  // }, [dispatch, user])
 
   return (
     <>
@@ -40,25 +44,25 @@ function App() {
           <Route path="/images" exact>
             <ImageFeed />
           </Route>
-          <Route path={"/images/:imageId"} exact>
+          <Route path={"/images/:imageId"}>
             <SelectedImage />
           </Route>
-          <Route path="/collections" exact>
-            <GetCollections />
-          </Route>
-          <Route path="/newCollection" exact>
-            <CollectionForm />
-          </Route>
-          <Route path="/signup" exact>
+          <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/upload" exact>
+          <Route path="/collections">
+            <GetCollections />
+          </Route>
+          <Route path="/collections">
+            <AddToCollectionButton />
+          </Route>
+          <Route path="/upload">
             <AddImage />
           </Route>
-          <Route path="/login" exact>
+          <Route path="/login">
             <LoginFormPage />
           </Route>
-          <Route path="/" exact>
+          <Route path="/">
             <LandingPage />
           </Route>
         </Switch>

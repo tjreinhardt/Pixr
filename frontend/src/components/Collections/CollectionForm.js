@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import { addImage } from '../../store/images'
 import { addCollection } from '../../store/collections'
 
 
@@ -9,7 +10,6 @@ function CollectionForm() {
   const history = useHistory()
   const [title, setTitle] = useState('')
   const [validationErrors, setValidationErrors] = useState([])
-
   const userId = useSelector((state) => state.session.user.id)
   const updateTitle = (e) => setTitle(e.target.value)
   const handleSubmit = async (e) => {
@@ -32,14 +32,14 @@ function CollectionForm() {
 
   return (
     <div>
-      <title>Create Collection</title>
+      <h4>Create Collection</h4>
       <form onSubmit={handleSubmit}>
         <ul>
           {validationErrors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
-        <label>
+        <label> Title
           <input
             name="title"
             type="text"

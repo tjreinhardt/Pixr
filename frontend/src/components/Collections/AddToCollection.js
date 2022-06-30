@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import AddToCollectionModal from "./AddToCollectionModal";
 
 
@@ -17,8 +16,6 @@ function AddToCollectionButton({ imageId }) {
 
   useEffect(() => {
     if (!showModal) return;
-
-
   }, [showModal]);
 
   return (
