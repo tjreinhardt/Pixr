@@ -5,20 +5,20 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { deleteImage, findImage } from '../../store/images';
 import EditImageForm from '../EditImageForm';
-import * as sessionActions from '../../store/session';
+// import * as sessionActions from '../../store/session';
 
 import './SelectedImage.css';
 
 export const SelectedImage = () => {
   const { imageId } = useParams();
+  const dispatch = useDispatch();
+  const history = useHistory();
   const images = useSelector(state => state.images)
   const sessionUser = useSelector(state => state.session.user)
   const targetImage = images[imageId]
-  const dispatch = useDispatch();
-  const history = useHistory();
 
-  const [showEditButton, setShowEditButton] = useState(false);
-  const [showDeleteButton, setShowDeleteButton] = useState(false);
+  // const [showEditButton, setShowEditButton] = useState(false);
+  // const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export const SelectedImage = () => {
       }
     }
     fetchImage();
-  }, [dispatch, imageId, history]);
+  }, [dispatch, imageId, history, sessionUser]);
 
   // useEffect(() => {
   //   if (images && images.userId === sessionUser.id) {
@@ -52,10 +52,16 @@ export const SelectedImage = () => {
   //   dispatch(modifyImage({ imageId, imageDescription }))
   //   setShowEditForm(!showEditForm)
   // }
+
+  if (!sessionUser) {
+    return history.push('/signup')
+  }
   const auth = sessionUser.id === targetImage.userId;
-  if (!sessionUser) return history.push('/signup')
+  // if (!sessionUser) return history.push('/')
   console.log('sessionuser', sessionUser.id)
   console.log('images', targetImage.userId)
+
+
   const onDelete = async (e) => {
     e.preventDefault();
     dispatch(deleteImage(targetImage));
@@ -90,6 +96,7 @@ export const SelectedImage = () => {
           {auth && (
             <>
               <button className="nav-buttons" onClick={() => setShowEditForm(showEditForm)}>Edit Image</button>
+              <br />
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
             </>)}{content}
         </div>
