@@ -21,6 +21,10 @@ const AddImage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setImageTitle('');
+    setImageUrl('')
+    setImageDescription('')
+
 
     const payload = {
       userId,

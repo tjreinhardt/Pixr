@@ -52,14 +52,14 @@ export const SelectedImage = () => {
   //   dispatch(modifyImage({ imageId, imageDescription }))
   //   setShowEditForm(!showEditForm)
   // }
-  const auth = sessionUser?.imageId === images?.imageId;
-  console.log('auth', auth)
+  const auth = sessionUser.id === targetImage.userId;
+  if (!sessionUser) return history.push('/signup')
+  console.log('sessionuser', sessionUser.id)
+  console.log('images', targetImage.userId)
   const onDelete = async (e) => {
     e.preventDefault();
-    if (auth) {
-      await dispatch(deleteImage(targetImage));
-      history.push("/images")
-    }
+    dispatch(deleteImage(targetImage));
+    history.push("/images")
   }
 
   let content = null;
@@ -94,7 +94,6 @@ export const SelectedImage = () => {
             {auth && (
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
             )} */}
-
               {content}
             </div>)}
         </div>

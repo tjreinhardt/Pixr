@@ -21,3 +21,9 @@
   font-size: 40px;
   align-self: flex-start;
 }
+
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
