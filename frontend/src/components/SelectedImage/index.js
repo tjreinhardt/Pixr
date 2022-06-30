@@ -5,9 +5,12 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { deleteImage, findImage } from '../../store/images';
 import EditImageForm from '../EditImageForm';
+import AddToCollectionButton from '../Collections/AddToCollection';
+import { getCollection } from '../../store/collections';
 // import * as sessionActions from '../../store/session';
 
 import './SelectedImage.css';
+import image from '../../store/images'
 
 export const SelectedImage = () => {
   const { imageId } = useParams();
@@ -15,6 +18,7 @@ export const SelectedImage = () => {
   const history = useHistory();
   const images = useSelector(state => state.images)
   const sessionUser = useSelector(state => state.session.user)
+  const collections = useSelector(state => image && state.collections[image.collectionId])
   const targetImage = images[imageId]
 
   // const [showEditButton, setShowEditButton] = useState(false);
@@ -99,6 +103,8 @@ export const SelectedImage = () => {
               <br />
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
             </>)}{content}
+          {collections && <p>{collections?.title}</p>}
+          <AddToCollectionButton imageId={imageId} />
         </div>
       </div>
     </div>

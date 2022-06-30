@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
@@ -9,6 +9,9 @@ import LandingPage from "./components/LandingPage";
 import SelectedImage from "./components/SelectedImage";
 import LoginFormPage from "./components/LoginFormPage";
 import AddImage from "./components/AddImage";
+import { getUserCollections } from "./store/collections"
+import GetCollections from "./components/Collections/GetCollections";
+import CollectionForm from './components/Collections/CollectionForm';
 // import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
 // import DemoLogin from "./components/LoginFormPage/DemoLogin";
@@ -17,16 +20,15 @@ import AddImage from "./components/AddImage";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-
-  // const user = useSelector(state=>state.session.user)
-
-  // useEffect(() => {
-  //   if (user) dispatch(load())
-  // }, [dispatch, user])
+  const user = useSelector(state => state.session.user)
+  useEffect(() => {
+    dispatch(getUserCollections(user.id))
+  }, [dispatch, user])
 
   return (
     <>
@@ -38,6 +40,12 @@ function App() {
           </Route>
           <Route path={"/images/:imageId"}>
             <SelectedImage />
+          </Route>
+          <Route path="/collections">
+            <GetCollections />
+          </Route>
+          <Route path="/newCollection">
+            <CollectionForm />
           </Route>
           <Route path="/signup">
             <SignupFormPage />
