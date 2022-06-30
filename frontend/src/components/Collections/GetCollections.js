@@ -16,7 +16,7 @@ function GetCollections() {
 
   useEffect(() => {
     dispatch(getUserCollections(userId))
-  }, [userId])
+  }, [userId, dispatch])
   return (
     <div>Get Collections
       <Link to="/newCollection">

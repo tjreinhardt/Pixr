@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { addImage } from '../../store/images'
 import { addCollection } from '../../store/collections'
 
 
