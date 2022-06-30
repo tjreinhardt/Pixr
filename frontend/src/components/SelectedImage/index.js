@@ -24,6 +24,7 @@ export const SelectedImage = () => {
   useEffect(() => {
     async function fetchImage() {
       try {
+        console.log('sessionUser', sessionUser)
         dispatch(findImage(imageId));
       } catch (err) {
         console.log("Cannot find this image :(")
@@ -33,17 +34,17 @@ export const SelectedImage = () => {
     fetchImage();
   }, [dispatch, imageId, history]);
 
-  useEffect(() => {
-    if (images && images.userId === sessionUser.id) {
-      setShowEditButton(true);
-    }
-  }, [images, sessionUser.id])
+  // useEffect(() => {
+  //   if (images && images.userId === sessionUser.id) {
+  //     setShowEditButton(true);
+  //   }
+  // }, [images, sessionUser.id])
 
-  useEffect(() => {
-    if (images && images.userId === sessionUser.id) {
-      setShowDeleteButton(true);
-    }
-  }, [images, sessionUser.id])
+  // useEffect(() => {
+  //   if (images && images.userId === sessionUser.id) {
+  //     setShowDeleteButton(true);
+  //   }
+  // }, [images, sessionUser.id])
 
 
   // const onEdit = (e) => {
@@ -51,17 +52,24 @@ export const SelectedImage = () => {
   //   dispatch(modifyImage({ imageId, imageDescription }))
   //   setShowEditForm(!showEditForm)
   // }
-
+  const auth = sessionUser?.imageId === images?.imageId;
+  console.log('auth', auth)
   const onDelete = async (e) => {
     e.preventDefault();
-    await dispatch(deleteImage(targetImage));
-    history.push("/images")
+    if (auth) {
+      await dispatch(deleteImage(targetImage));
+      history.push("/images")
+    }
   }
 
   let content = null;
-  if (showEditForm) {
+  if (auth) {
     content = (
-      <EditImageForm image={targetImage} hideForm={() => setShowEditForm(false)} />
+      <>
+        <EditImageForm image={targetImage} hideForm={() => setShowEditForm(false)} />
+        <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button>
+        <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
+      </>
     )
   }
 
@@ -69,7 +77,6 @@ export const SelectedImage = () => {
     return null;
   }
 
-  const auth = sessionUser?.imageId === images?.imageId;
   return (
     <div className='target-image-container'>
       <div className='target-image-content'>
@@ -80,15 +87,16 @@ export const SelectedImage = () => {
         <div>
           <p className="target-image-description">{targetImage.imageDescription}</p>
           {auth && (
-            <>
+            <div>
+              {/* {auth && (
               <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button>
-            </>
-          )}
-          {auth && (
-            <>
+            )}
+            {auth && (
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
-            </>
-          )}{content}
+            )} */}
+
+              {content}
+            </div>)}
         </div>
       </div>
     </div>
