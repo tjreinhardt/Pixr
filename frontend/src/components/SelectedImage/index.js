@@ -60,6 +60,7 @@ export const SelectedImage = () => {
     e.preventDefault();
     dispatch(deleteImage(targetImage));
     history.push("/images")
+
   }
 
   let content = null;
@@ -67,8 +68,8 @@ export const SelectedImage = () => {
     content = (
       <>
         <EditImageForm image={targetImage} hideForm={() => setShowEditForm(false)} />
-        <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button>
-        <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
+        {/* <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button> */}
+        {/* <button className="nav-buttons" onClick={onDelete}>Delete Image</button> */}
       </>
     )
   }
@@ -87,15 +88,10 @@ export const SelectedImage = () => {
         <div>
           <p className="target-image-description">{targetImage.imageDescription}</p>
           {auth && (
-            <div>
-              {/* {auth && (
-              <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button>
-            )}
-            {auth && (
+            <>
+              <button className="nav-buttons" onClick={() => setShowEditForm(showEditForm)}>Edit Image</button>
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
-            )} */}
-              {content}
-            </div>)}
+            </>)}{content}
         </div>
       </div>
     </div>

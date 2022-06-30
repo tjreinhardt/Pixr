@@ -44,13 +44,11 @@ const AddImage = () => {
       setErrors(errorArray)
     }
   };
-
-
   return (
     <>
       {userId && (
         <form onSubmit={handleSubmit} className='add-image-form'>
-          <h3> Add a new Image </h3>
+          <h4> Add Image </h4>
           {errors.map((err) => (
             <div key={err}>{err}</div>
           ))}
@@ -69,7 +67,7 @@ const AddImage = () => {
             placeholder="Description"
             value={imageDescription}
             onChange={updateImageDescription} />
-          <button type="submit">Add new Image</button>
+          <button className="nav-buttons" type="submit">Add new Image</button>
         </form>
       )}
     </>
