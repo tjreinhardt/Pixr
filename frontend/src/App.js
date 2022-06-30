@@ -44,7 +44,7 @@ function App() {
           <Route path="/images" exact>
             <ImageFeed />
           </Route>
-          <Route path={"/images/:imageId"}>
+          <Route path="/images/:imageId">
             <SelectedImage />
           </Route>
           <Route path="/signup">
@@ -53,7 +53,7 @@ function App() {
           <Route path="/collections">
             <GetCollections />
           </Route>
-          <Route path="/collections">
+          <Route path="/newCollection">
             <AddToCollectionButton />
           </Route>
           <Route path="/upload">

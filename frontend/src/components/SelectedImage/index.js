@@ -25,15 +25,11 @@ export const SelectedImage = () => {
   // const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
+
   useEffect(() => {
     async function fetchImage() {
-      try {
-        console.log('sessionUser', sessionUser)
-        dispatch(findImage(imageId));
-      } catch (err) {
-        console.log("Cannot find this image :(")
-        history.push("/images")
-      }
+      console.log('sessionUser', sessionUser)
+      dispatch(findImage(imageId));
     }
     fetchImage();
   }, [dispatch, imageId, history, sessionUser]);
@@ -72,6 +68,7 @@ export const SelectedImage = () => {
     history.push("/images")
 
   }
+
 
   let content = null;
   if (auth) {
