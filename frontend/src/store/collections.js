@@ -25,8 +25,7 @@ const remove = (collection) => ({
   type: REMOVE_COLLECTION,
   collection
 });
-
-//thunk middleware
+// add
 export const addCollection = (payload) => async dispatch => {
   const response = await csrfFetch(`/api/collections`, {
     method: "POST",
@@ -45,7 +44,7 @@ export const getCollection = (id) => async dispatch => {
   }
 };
 
-//get all collections based on userId
+//get all
 export const getUserCollections = (id) => async dispatch => {
   const response = await csrfFetch(`/api/collections/users/${id}`,);
   if (response.ok) {
@@ -53,16 +52,16 @@ export const getUserCollections = (id) => async dispatch => {
     dispatch(load(collections));
   }
 };
-
+// edit
 export const editCollection = (id, payload) => async dispatch => {
   const response = await csrfFetch(`/api/collections/${id}`, {
-    method: "PATCH",
+    method: "PUT",
     body: JSON.stringify(payload)
   })
   const collection = await response.json();
   dispatch(edit(collection));
 };
-
+// delete
 export const deleteCollection = (id) => async dispatch => {
   const response = await csrfFetch(`/api/collections/${id}`, {
     method: "DELETE",

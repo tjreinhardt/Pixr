@@ -11,7 +11,9 @@ import LoginFormPage from "./components/LoginFormPage";
 import AddImage from "./components/AddImage";
 import { getUserCollections } from "./store/collections"
 import GetCollections from "./components/Collections/GetCollections";
-import AddToCollectionButton from "./components/Collections/AddToCollection";
+// import AddToCollectionButton from "./components/Collections/AddToCollection";
+import SelectedCollection from "./components/Collections/SelectedCollection";
+import CollectionForm from "./components/Collections/CollectionForm";
 // import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
 // import DemoLogin from "./components/LoginFormPage/DemoLogin";
@@ -54,7 +56,7 @@ function App() {
             <GetCollections />
           </Route>
           <Route path="/newCollection">
-            <AddToCollectionButton />
+            <CollectionForm />
           </Route>
           <Route path="/upload">
             <AddImage />
@@ -64,6 +66,9 @@ function App() {
           </Route>
           <Route path="/">
             <LandingPage />
+          </Route>
+          <Route path="/collections/:collectionId">
+            <SelectedCollection />
           </Route>
         </Switch>
       )}

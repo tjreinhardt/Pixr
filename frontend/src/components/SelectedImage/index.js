@@ -7,6 +7,7 @@ import { deleteImage, findImage } from '../../store/images';
 import EditImageForm from '../EditImageForm';
 import AddToCollectionButton from '../Collections/AddToCollection';
 import { getCollection } from '../../store/collections';
+import { deleteCollection } from '../../store/collections';
 // import * as sessionActions from '../../store/session';
 
 import './SelectedImage.css';
@@ -33,6 +34,11 @@ export const SelectedImage = () => {
     }
     fetchImage();
   }, [dispatch, imageId, history, sessionUser]);
+
+  useEffect(() => {
+    if (!images?.collectionId || collections) return;
+    dispatch(getCollection(images.collectionId))
+  }, [images, collections])
 
   // useEffect(() => {
   //   if (images && images.userId === sessionUser.id) {
@@ -66,7 +72,6 @@ export const SelectedImage = () => {
     e.preventDefault();
     dispatch(deleteImage(targetImage));
     history.push("/images")
-
   }
 
 

@@ -19,7 +19,7 @@ function AddToCollectionButton({ imageId }) {
   }, [showModal]);
 
   return (
-    <div>
+    <div className="add-to-collection-form-div">
       <button onClick={openModal}>Add to Collection</button>
       {showModal && (
         <AddToCollectionModal imageId={imageId} closeModal={closeModal} />

@@ -3,15 +3,11 @@ const { User } = require('./user')
 
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define('Image', {
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: { model: User }
-    },
+    userId: DataTypes.INTEGER,
     collectionId: DataTypes.INTEGER,
-    imageUrl: DataTypes.STRING,
+    imageUrl: DataTypes.TEXT,
     imageTitle: DataTypes.STRING,
-    imageDescription: DataTypes.STRING
+    imageDescription: DataTypes.TEXT
   }, {});
   Image.associate = function (models) {
     Image.belongsTo(models.User, { foreignKey: 'userId', hooks: true });
