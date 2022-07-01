@@ -35,7 +35,7 @@ router.delete(
   `/:id`,
   asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const collection = await Collection.findByPk(id);
+    const collection = await Collection.findByPk(req.params.id);
     await collection.destroy()
     return res.json(collection)
   })

@@ -53,35 +53,41 @@ export const getUserCollections = (id) => async dispatch => {
   }
 };
 // edit
-export const editCollection = (id, payload) => async dispatch => {
-  const response = await csrfFetch(`/api/collections/${id}`, {
+export const editCollection = (collection) => async dispatch => {
+  const response = await csrfFetch(`/api/collections/${collection.id}`, {
     method: "PUT",
-    body: JSON.stringify(payload)
+    body: JSON.stringify(collection)
   })
-  const collection = await response.json();
-  dispatch(edit(collection));
+  if (response.ok) {
+    const editedCollection = await response.json();
+    dispatch(edit(collection));
+    return editedCollection;
+  }
 };
-// delete
-export const deleteCollection = (id) => async dispatch => {
-  const response = await csrfFetch(`/api/collections/${id}`, {
+//delete
+export const deleteCollection = (collection) => async dispatch => {
+  const response = await csrfFetch(`/api/collections/${collection.id}`, {
     method: "DELETE",
   })
-  const collection = await response.json();
   dispatch(remove(collection));
+  return response;
 };
 
 const initialState = {}
 
 const collectionsReducer = (state = initialState, action) => {
+  let newState;
   switch (action.type) {
     case GET_COLLECTIONS:
-      const newCollections = action.collections.reduce((map, collection) => {
-        map[collection.id] = collection;
-        return map
-      }, {})
-      return { ...state, ...newCollections }
+      newState = {};
+      action.collections.forEach(collection => newState[collection.id] = collection)
+      return newState;
     case ADD_COLLECTION:
       return { ...state, [action.collection.id]: action.collection };
+    case UPDATE_COLLECTION:
+      newState = Object.assign({}, state)
+      newState[action.collection.id] = action.collection;
+      return newState
     case REMOVE_COLLECTION:
       const currentState = { ...state }
       delete currentState[action.collection.id]
