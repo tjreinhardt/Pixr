@@ -8,6 +8,7 @@ function SelectedCollection() {
   const history = useHistory()
 
   const { id } = useParams();
+
   const userId = useSelector((state) => state.session.user.id)
   const collection = useSelector(state => state.collections[id])
 

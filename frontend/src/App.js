@@ -67,7 +67,7 @@ function App() {
           <Route path="/">
             <LandingPage />
           </Route>
-          <Route path="/collections/:id">
+          <Route path={`/collections/:id`}>
             <SelectedCollection />
           </Route>
         </Switch>
