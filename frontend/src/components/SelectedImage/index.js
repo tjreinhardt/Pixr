@@ -49,6 +49,7 @@ export const SelectedImage = () => {
   }
   const auth = sessionUser.id === images[imageId]?.userId;
 
+
   console.log('sessionuser', sessionUser.id)
   // console.log('images', targetImage.userId)
 

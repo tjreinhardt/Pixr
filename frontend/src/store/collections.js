@@ -40,16 +40,17 @@ export const getCollection = (id) => async dispatch => {
   const response = await csrfFetch(`/api/collections/${id}`,);
   if (response.ok) {
     const collection = await response.json();
-    dispatch(add(collection));
+    dispatch(load(collection));
   }
 };
 
 //get all
 export const getUserCollections = (id) => async dispatch => {
-  const response = await csrfFetch(`/api/collections/users/${id}`,);
+  const response = await csrfFetch(`/api/collections`,);
   if (response.ok) {
     const collections = await response.json();
-    dispatch(load(collections));
+    const userCollections = collections.filter(collection => collection.userId === id)
+    dispatch(load(userCollections));
   }
 };
 // edit
@@ -78,10 +79,16 @@ const initialState = {}
 const collectionsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case GET_COLLECTIONS:
+    case GET_COLLECTIONS: {
       newState = {};
-      action.collections.forEach(collection => newState[collection.id] = collection)
-      return newState;
+      action.collections.forEach(collection => {
+        newState[collection.id] = collection
+      })
+      return {
+        ...newState,
+        ...state,
+      };
+    }
     case ADD_COLLECTION:
       return { ...state, [action.collection.id]: action.collection };
     case UPDATE_COLLECTION:

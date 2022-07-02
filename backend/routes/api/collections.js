@@ -13,6 +13,13 @@ router.get(
     res.json(collections)
   })
 )
+router.get(
+  '/',
+  asyncHandler(async function (req, res) {
+    const collections = await Collection.findAll();
+    return res.json(collections);
+  })
+);
 
 router.get(
   '/:collectionId',
@@ -22,7 +29,6 @@ router.get(
     res.json(collection)
   })
 )
-
 router.post(
   `/`,
   asyncHandler(async (req, res) => {
@@ -30,6 +36,7 @@ router.post(
     res.json(collection)
   })
 )
+
 
 router.delete(
   `/:id`,

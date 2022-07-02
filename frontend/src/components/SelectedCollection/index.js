@@ -7,27 +7,37 @@ function SelectedCollection() {
   const { id } = useParams();
   const dispatch = useDispatch()
   const history = useHistory()
-  const images = userImages.filter(image => image.collectionId === Number(id))
-  const sessionUser = useSelector(state => state.session.user)
-  const userId = useSelector((state) => state.session.user.id)
-  const collection = useSelector(state => state.collections[id])
-  const targetCollection = collection[collection.id]
+  // const images = userImages.filter(image => image.collectionId === Number(id))
+  // const sessionUser = useSelector(state => state.session.user)
+  // const userId = useSelector((state) => state.session.user.id)
+  const collections = Object.values(useSelector(state => state.collections)).filter(
+    (collection) => {
+      return collection.id === Number(id)
+    }
+  )
+  console.log('collections', collections)
+  // const targetCollection = collection[collection.id]
   // console.log('targetCollection', targetCollection)
+  const images = useSelector(state => state.images.filter(img => img.collections.id === Number(id)))
+  console.log('collections', collections)
 
-  const userImages = Object.values(useSelector(state => state.images))
+  // const images = Object.values(useSelector(state => state.images))
   const onDelete = () => {
     dispatch(deleteCollection(id))
     history.push('/collections')
   }
 
+
+  // const auth = sessionUser.id === images[imageId]?.userId;
   // if (!targetCollection) {
   //   return null;
   // }
   return (
     <div>
+      <p>TEST TEST TEST </p>
       <button onClick={onDelete}>Delete this collection</button>
       <div>
-        <h2>{collection.title}</h2>
+        <h2>{collections.title}</h2>
         <div>
           <ul>
             {images && images.map(image => {
