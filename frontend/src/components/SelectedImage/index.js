@@ -47,7 +47,7 @@ export const SelectedImage = () => {
   if (!sessionUser) {
     return history.push('/signup')
   }
-  const auth = sessionUser.id === targetImage;
+  const auth = sessionUser.id === images[imageId]?.userId;
 
   console.log('sessionuser', sessionUser.id)
   // console.log('images', targetImage.userId)
