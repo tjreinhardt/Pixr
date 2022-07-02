@@ -85,8 +85,8 @@ export const SelectedImage = () => {
           <p className="target-image-description">{targetImage.imageDescription}</p>
           {auth && (
             <>
-              <button className="nav-buttons" onClick={() => setShowEditForm(showEditForm)}>Edit Image</button>
-              <br />
+              {/* <button className="nav-buttons" onClick={() => setShowEditForm(showEditForm)}>Edit Image</button> */}
+
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
             </>)}{content}
           {collections && <p>{collections?.title}</p>}

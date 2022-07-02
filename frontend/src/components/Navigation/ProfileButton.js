@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
+import { Link, NavLink } from "react-router-dom";
 import * as sessionActions from '../../store/session';
 import './Navigation.css'
 import { useHistory } from "react-router-dom";
@@ -34,6 +35,9 @@ function ProfileButton({ user }) {
 
   return (
     <>
+      <NavLink className="nav-buttons" to="/images">Browse</NavLink>
+      <Link className='nav-buttons' to="/upload">Upload</Link>
+      <Link className="nav-buttons" to="/collections">Collections</Link>
       <button className="nav-buttons" onClick={openMenu}>
         <i className="fas fa-user-circle" />
       </button>

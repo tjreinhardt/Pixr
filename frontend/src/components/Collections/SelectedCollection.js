@@ -11,6 +11,7 @@ function SelectedCollection() {
 
   const userId = useSelector((state) => state.session.user.id)
   const collection = useSelector(state => state.collections[id])
+  const targetCollection = collection[collection.id]
 
   const userImages = Object.values(useSelector(state => state.images))
   const images = userImages.filter(image => image.collectionId === Number(id))
@@ -19,6 +20,9 @@ function SelectedCollection() {
     history.push('/collections')
   }
 
+  if (!targetCollection) {
+    return null;
+  }
   return (
     <div>
       <button onClick={onDelete}>Delete this collection</button>
@@ -26,14 +30,11 @@ function SelectedCollection() {
         <h2>{collection.title}</h2>
         <div>
           {images?.map(image => {
-            return (
-              <ul>
-                <li key={image?.id} to={`/images/${image?.id}`}>
-                  <p>testingggggggggggggggggggggggg</p>
-                </li>
-
-              </ul>
-            )
+            <ul>
+              <li key={image?.id} to={`/images/${image?.id}`}>
+                <p>testingggggggggggggggggggggggg</p>
+              </li>
+            </ul>
           })}
         </div>
       </div>
