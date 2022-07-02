@@ -4,38 +4,38 @@ import { deleteCollection } from '../../store/collections'
 
 
 function SelectedCollection() {
+  const { id } = useParams();
   const dispatch = useDispatch()
   const history = useHistory()
-
-  const { id } = useParams();
-
+  const images = userImages.filter(image => image.collectionId === Number(id))
+  const sessionUser = useSelector(state => state.session.user)
   const userId = useSelector((state) => state.session.user.id)
   const collection = useSelector(state => state.collections[id])
   const targetCollection = collection[collection.id]
+  // console.log('targetCollection', targetCollection)
 
   const userImages = Object.values(useSelector(state => state.images))
-  const images = userImages.filter(image => image.collectionId === Number(id))
   const onDelete = () => {
     dispatch(deleteCollection(id))
     history.push('/collections')
   }
 
-  if (!targetCollection) {
-    return null;
-  }
+  // if (!targetCollection) {
+  //   return null;
+  // }
   return (
     <div>
       <button onClick={onDelete}>Delete this collection</button>
       <div>
         <h2>{collection.title}</h2>
         <div>
-          {images?.map(image => {
-            <ul>
-              <li key={image?.id} to={`/images/${image?.id}`}>
+          <ul>
+            {images && images.map(image => {
+              <li key={image.id} to={`/images/${image.id}`}>
                 <p>testingggggggggggggggggggggggg</p>
               </li>
-            </ul>
-          })}
+            })}
+          </ul>
         </div>
       </div>
     </div>

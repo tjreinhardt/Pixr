@@ -28,13 +28,16 @@ export const SelectedImage = () => {
   const [showEditForm, setShowEditForm] = useState(false);
 
 
+  // useEffect(() => {
+  //   async function fetchImage() {
+  //     console.log('sessionUser', sessionUser)
+  //     dispatch(findImage(imageId));
+  //   }
+  //   fetchImage();
+  // }, [dispatch, imageId, history, sessionUser]);
   useEffect(() => {
-    async function fetchImage() {
-      console.log('sessionUser', sessionUser)
-      dispatch(findImage(imageId));
-    }
-    fetchImage();
-  }, [dispatch, imageId, history, sessionUser]);
+    dispatch(findImage(Number(imageId)));
+  }, [dispatch, imageId])
 
   useEffect(() => {
     if (!images?.collectionId || collections) return;
@@ -44,10 +47,10 @@ export const SelectedImage = () => {
   if (!sessionUser) {
     return history.push('/signup')
   }
-  const auth = sessionUser.id === targetImage.userId;
+  const auth = sessionUser.id === targetImage;
 
   console.log('sessionuser', sessionUser.id)
-  console.log('images', targetImage.userId)
+  // console.log('images', targetImage.userId)
 
 
   const onDelete = async (e) => {
@@ -64,8 +67,6 @@ export const SelectedImage = () => {
     content = (
       <>
         <EditImageForm image={targetImage} hideForm={() => setShowEditForm(false)} />
-        {/* <button className="nav-buttons" onClick={() => setShowEditForm(!showEditForm)}>Edit Image</button> */}
-        {/* <button className="nav-buttons" onClick={onDelete}>Delete Image</button> */}
       </>
     )
   }
@@ -85,8 +86,6 @@ export const SelectedImage = () => {
           <p className="target-image-description">{targetImage.imageDescription}</p>
           {auth && (
             <>
-              {/* <button className="nav-buttons" onClick={() => setShowEditForm(showEditForm)}>Edit Image</button> */}
-
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
             </>)}{content}
           {collections && <p>{collections?.title}</p>}

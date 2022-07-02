@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink } from "react-router-dom"
 import { deleteCollection } from "../../store/collections"
@@ -19,15 +20,19 @@ function GetCollections() {
   return (
     <div>
       <NavLink to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
-      {array.map(collection =>
-        <div>
-          <Link to={`/collections/${collection.id}/images`}>
-            {collection.title}
-          </Link>
-          <button onClick={() => dispatch(deleteCollection(collection))}>
-            Delete
-          </button>
-        </div>)}
+      {array.map((collection) => {
+        return (
+          <React.Fragment key={collection.id}>
+            <Link to={`/collections/${collection.id}`}>
+              {collection.title}
+            </Link>
+            <button onClick={() => dispatch(deleteCollection(collection))}>
+              Delete
+            </button>
+          </React.Fragment>)
+      }
+      )
+      }
     </div>
   )
 }

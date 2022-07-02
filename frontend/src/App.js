@@ -12,7 +12,7 @@ import AddImage from "./components/AddImage";
 import { getUserCollections } from "./store/collections"
 import GetCollections from "./components/Collections/GetCollections";
 // import AddToCollectionButton from "./components/Collections/AddToCollection";
-import SelectedCollection from "./components/Collections/SelectedCollection";
+import SelectedCollection from "./components/SelectedCollection";
 import CollectionForm from "./components/Collections/CollectionForm";
 // import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
@@ -37,6 +37,11 @@ function App() {
   // useEffect(() => {
   //   if (user) dispatch(load())
   // }, [dispatch, user])
+
+  //! TODO
+  /**
+   ** Every Route component should be in a folder 'pages'
+   */
 
   return (
     <>

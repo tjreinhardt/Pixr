@@ -9,9 +9,7 @@ import './ImageFeed.css'
 const ImageFeed = () => {
   const dispatch = useDispatch();
 
-  const images = useSelector(state => {
-    return Object.values(state.images)
-  });
+  const images = useSelector(state => { return Object.values(state.images) });
 
   useEffect(() => {
     dispatch(getImages());
