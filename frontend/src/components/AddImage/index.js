@@ -44,6 +44,7 @@ const AddImage = () => {
       setErrors(errorArray)
     }
   };
+
   return (
     <>
       {userId && (

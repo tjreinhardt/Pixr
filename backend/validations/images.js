@@ -3,7 +3,7 @@ const { handleValidationErrors } = require('./../utils/validation')
 
 const imageTitle = check('imageTitle')
   .notEmpty()
-  .isLength({ max: 40 })
+  .isLength({ max: 45 })
   .withMessage('Please provide a title under 40 characters long')
 const imageUrl = check('imageUrl')
   .notEmpty()

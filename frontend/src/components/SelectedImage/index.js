@@ -7,6 +7,7 @@ import { deleteImage, findImage } from '../../store/images';
 import EditImageForm from '../EditImageForm';
 import AddToCollectionButton from '../Collections/AddToCollection';
 import { getCollection } from '../../store/collections';
+import ProfileButton from '../Navigation/ProfileButton';
 import { deleteCollection } from '../../store/collections';
 // import * as sessionActions from '../../store/session';
 
@@ -40,30 +41,11 @@ export const SelectedImage = () => {
     dispatch(getCollection(images.collectionId))
   }, [images, collections])
 
-  // useEffect(() => {
-  //   if (images && images.userId === sessionUser.id) {
-  //     setShowEditButton(true);
-  //   }
-  // }, [images, sessionUser.id])
-
-  // useEffect(() => {
-  //   if (images && images.userId === sessionUser.id) {
-  //     setShowDeleteButton(true);
-  //   }
-  // }, [images, sessionUser.id])
-
-
-  // const onEdit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(modifyImage({ imageId, imageDescription }))
-  //   setShowEditForm(!showEditForm)
-  // }
-
   if (!sessionUser) {
     return history.push('/signup')
   }
   const auth = sessionUser.id === targetImage.userId;
-  // if (!sessionUser) return history.push('/')
+
   console.log('sessionuser', sessionUser.id)
   console.log('images', targetImage.userId)
 
@@ -73,7 +55,9 @@ export const SelectedImage = () => {
     dispatch(deleteImage(targetImage));
     history.push("/images")
   }
-
+  if (sessionUser) {
+    <ProfileButton user={sessionUser} />
+  }
 
   let content = null;
   if (auth) {

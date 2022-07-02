@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AddToCollectionModal from "./AddToCollectionModal";
+// import AddToCollectionModal from "./AddToCollectionModal";
 
 
 function AddToCollectionButton({ imageId }) {
@@ -18,14 +18,14 @@ function AddToCollectionButton({ imageId }) {
     if (!showModal) return;
   }, [showModal]);
 
-  return (
-    <div className="add-to-collection-form-div">
-      <button onClick={openModal}>Add to Collection</button>
-      {showModal && (
-        <AddToCollectionModal imageId={imageId} closeModal={closeModal} />
-      )}
-    </div>
-  )
+  // return (
+  //   <div className="add-to-collection-form-div">
+  //     <button onClick={openModal}>Add to Collection</button>
+  //     {showModal && (
+  //       <AddToCollectionModal imageId={imageId} closeModal={closeModal} />
+  //     )}
+  //   </div>
+  // )
 }
 
 export default AddToCollectionButton;
