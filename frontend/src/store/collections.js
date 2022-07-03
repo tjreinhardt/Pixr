@@ -53,7 +53,7 @@ export const getUserCollections = (id) => async dispatch => {
   const response = await csrfFetch(`/api/collections`,);
   if (response.ok) {
     const collections = await response.json();
-    const userCollections = collections.filter(collection => collection.userId === id)
+    const userCollections = collections.filter(collection => collection.userId === Number(id))
     dispatch(load(userCollections));
   }
 };
@@ -89,7 +89,8 @@ const collectionsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_COLLECTIONS:
       newState = {};
-      action.collections.forEach(collection => {
+      console.log('action', action)
+      Object.values(action.collections).forEach(collection => {
         newState[collection.id] = collection
       })
       return {

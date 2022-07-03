@@ -46,7 +46,6 @@ function SelectedCollection() {
   // }
   return (
     <div>
-      <p>TEST TEST TEST </p>
       <button onClick={onDelete}>Delete this collection</button>
       <div>
         {images.map((image, idx) => {

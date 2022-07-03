@@ -12,8 +12,20 @@ function GetCollections() {
   const dispatch = useDispatch()
   const sessionUser = useSelector((state) => state.session.user)
   const collections = useSelector(state => state.collections)
-  const array = Object.values(collections)
-    .filter(collection => collection.userId === sessionUser.id)
+  const memoCollections = (React.useMemo(
+    () => Object.values(collections)
+      .filter(collection => collection.userId === sessionUser.id)
+      .map((collection) => {
+        return (
+          <NavLink key={collection.id} to={`/collections/${collection.id}`}>
+            <div>
+              {collection.title}
+            </div>
+          </NavLink>
+        )
+      }),
+    [collections]
+  ));
   // const targetCollection = collections[collectionId]
   console.log('collections', collections)
   useEffect(() => {
@@ -36,18 +48,7 @@ function GetCollections() {
     <main>
       <div className='collection-container'>
         <NavLink to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
-        {array.map((collection) => {
-          return (
-            <NavLink key={collection.id} to={`/collections/${collection.id}`}>
-              <div>
-                {collection.title}
-              </div>
-            </NavLink>
-          )
-        })}
-        {/* <button onClick={() => dispatch(deleteCollection(collection))}>
-          Delete
-        </button> */}
+        {memoCollections}
       </ div>
     </main>
 

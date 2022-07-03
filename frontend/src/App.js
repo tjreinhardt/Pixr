@@ -28,9 +28,9 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (user) dispatch(getUserCollections(user.id))
-  }, [dispatch, user])
+  // useEffect(() => {
+  //   if (user) dispatch(getUserCollections(user.id))
+  // }, [dispatch, user])
 
 
 
