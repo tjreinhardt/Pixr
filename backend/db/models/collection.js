@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Collection.associate = function (models) {
     Collection.belongsTo(models.User, { foreignKey: 'userId' });
-    // Collection.hasMany(models.Image, {foreignKey: 'collectionId'})
+    Collection.hasMany(models.Image, { foreignKey: 'collectionId' })
   };
   return Collection;
 };

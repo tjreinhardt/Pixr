@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Image.associate = function (models) {
     Image.belongsTo(models.User, { foreignKey: 'userId', hooks: true });
-    // Image.belongsTo(models.Collection, {foreignKey: 'collectionId'})
+    Image.belongsTo(models.Collection, { foreignKey: 'collectionId' })
   };
   return Image;
 };

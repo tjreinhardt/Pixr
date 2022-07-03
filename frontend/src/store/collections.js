@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const ADD_COLLECTION = "collections/ADD_COLLECTION";
 const GET_COLLECTIONS = "collections/GET_COLLECTIONS";
-const UPDATE_COLLECTION = "collections/UPDATE_COLLECTION";
+// const UPDATE_COLLECTION = "collections/UPDATE_COLLECTION";
 const REMOVE_COLLECTION = "collections/REMOVE_COLLECTIONS";
 
 //actions
@@ -16,10 +16,10 @@ const load = (collections) => ({
   collections
 });
 
-const edit = (collection) => ({
-  type: UPDATE_COLLECTION,
-  collection
-});
+// const edit = (collection) => ({
+//   type: UPDATE_COLLECTION,
+//   collection
+// });
 
 const remove = (collection) => ({
   type: REMOVE_COLLECTION,
@@ -62,17 +62,17 @@ export const getUserCollections = (id) => async dispatch => {
 
 
 // edit
-export const editCollection = (collection) => async dispatch => {
-  const response = await csrfFetch(`/api/collections/${collection.id}`, {
-    method: "PUT",
-    body: JSON.stringify(collection)
-  })
-  if (response.ok) {
-    const editedCollection = await response.json();
-    dispatch(edit(collection));
-    return editedCollection;
-  }
-};
+// export const editCollection = (collection) => async dispatch => {
+//   const response = await csrfFetch(`/api/collections/${collection.id}`, {
+//     method: "PUT",
+//     body: JSON.stringify(collection)
+//   })
+//   if (response.ok) {
+//     const editedCollection = await response.json();
+//     dispatch(edit(collection));
+//     return editedCollection;
+//   }
+// };
 //delete
 export const deleteCollection = (collection) => async dispatch => {
   const response = await csrfFetch(`/api/collections/${collection.id}`, {
@@ -99,10 +99,10 @@ const collectionsReducer = (state = initialState, action) => {
       };
     case ADD_COLLECTION:
       return { ...state, [action.collection.id]: action.collection };
-    case UPDATE_COLLECTION:
-      newState = Object.assign({}, state)
-      newState[action.collection.id] = action.collection;
-      return newState
+    // case UPDATE_COLLECTION:
+    //   newState = Object.assign({}, state)
+    //   newState[action.collection.id] = action.collection;
+    //   return newState
     case REMOVE_COLLECTION:
       const currentState = { ...state }
       delete currentState[action.collection.id]

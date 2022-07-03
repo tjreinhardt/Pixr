@@ -50,9 +50,9 @@ router.post(
 
 router.delete(
   `/:id`,
-  asyncHandler(async (req, res) => {
-    const { id } = req.params;
+  asyncHandler(async function (req, res) {
     const collection = await Collection.findByPk(req.params.id);
+    // console.log('collection', collection, typeof collection)
     await collection.destroy()
     return res.json(collection)
   })

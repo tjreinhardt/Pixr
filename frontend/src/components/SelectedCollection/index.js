@@ -20,14 +20,15 @@ function SelectedCollection() {
   console.log('collections', collections)
   // const targetCollection = collection[collection.id]
   // console.log('targetCollection', targetCollection)
-  const images = Object.values(useSelector(state => state.images)).filter(image => image.collectionId === Number(id))
-  // const images = useSelector(state => { return Object.values(state.images) });
+  // const images = Object.values(useSelector(state => state.images)).filter(image => image.collectionId === Number(id))
+  const images = useSelector(state => { return Object.values(state.images) });
   console.log('images', images)
 
 
   // const images = Object.values(useSelector(state => state.images))
   const onDelete = () => {
     dispatch(deleteCollection(id))
+    console.log('id ~~~~~~~~~~~~~~~~~~~~~', id)
     history.push('/collections')
   }
 
