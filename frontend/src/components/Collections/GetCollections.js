@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { deleteCollection, getCollection, getUserCollections } from "../../store/collections"
 import { useParams } from 'react-router-dom';
 import ProfileButton from '../Navigation/ProfileButton';
@@ -15,40 +15,45 @@ function GetCollections() {
   const array = Object.values(collections)
     .filter(collection => collection.userId === sessionUser.id)
   // const targetCollection = collections[collectionId]
-
+  console.log('collections', collections)
   useEffect(() => {
-    dispatch(getUserCollections)
-  }, [])
+    dispatch(getUserCollections(sessionUser.id))
+  }, [dispatch])
 
   // if (sessionUser) {
   //   <ProfileButton user={sessionUser} />
   // }
-  console.log('sessionUser.id', sessionUser.id)
+  // console.log('sessionUser.id', sessionUser.id)
   // console.log('collections', collections[0].userId)
   // console.log('collections.collection.id', collections.collection.id)
   // console.log('collections.collection')
-  console.log('collections', collections)
+  // console.log('collections', collections)
 
 
   // const auth = sessionUser.id === collections[]?.userId;
   // console.log('auth', auth)
   return (
-    <div>
-      <NavLink to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
-      {array.map((collection) => {
-        return (
-          <div key={collection.id}>
-            <Link onClick={() => dispatch(getCollection(collection.id))} to={`/collections/${collection.id}`}>
-              {collection.title}
-            </Link>
-            <button onClick={() => dispatch(deleteCollection(collection))}>
-              Delete
-            </button>
-          </div >)
-      })
-      }
-    </div>
+    <main>
+      <div className='collection-container'>
+        <NavLink to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
+        {array.map((collection) => {
+          return (
+            <NavLink key={collection.id} to={`/collections/${collection.id}`}>
+              <div>
+                {collection.title}
+              </div>
+            </NavLink>
+          )
+        })}
+        {/* <button onClick={() => dispatch(deleteCollection(collection))}>
+          Delete
+        </button> */}
+      </ div>
+    </main>
+
   )
 }
 
 export default GetCollections;
+
+// onClick={() => dispatch(getCollection(collection.id))}

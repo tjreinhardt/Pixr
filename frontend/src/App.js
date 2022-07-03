@@ -57,8 +57,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/collections">
+          <Route path="/collections" exact>
             <GetCollections />
+          </Route>
+          <Route path="/collections/:id">
+            <SelectedCollection />
           </Route>
           <Route path="/newCollection">
             <CollectionForm />
@@ -71,9 +74,6 @@ function App() {
           </Route>
           <Route path="/">
             <LandingPage />
-          </Route>
-          <Route path={`/collections/:id`}>
-            <SelectedCollection />
           </Route>
         </Switch>
       )}

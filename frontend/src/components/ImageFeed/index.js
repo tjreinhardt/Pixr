@@ -11,6 +11,7 @@ const ImageFeed = () => {
 
   const images = useSelector(state => { return Object.values(state.images) });
 
+  console.log('images, imageFeed component', images)
   useEffect(() => {
     dispatch(getImages());
   }, [dispatch])

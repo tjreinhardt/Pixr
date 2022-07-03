@@ -1,6 +1,8 @@
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from 'react-router-dom';
-import { deleteCollection } from '../../store/collections'
+import { deleteCollection, getCollection } from '../../store/collections'
+import { getImages } from "../../store/images";
 
 
 function SelectedCollection() {
@@ -18,14 +20,24 @@ function SelectedCollection() {
   console.log('collections', collections)
   // const targetCollection = collection[collection.id]
   // console.log('targetCollection', targetCollection)
-  const images = useSelector(state => state.images.filter(img => img.collections.id === Number(id)))
-  console.log('collections', collections)
+  const images = Object.values(useSelector(state => state.images)).filter(image => image.collectionId === Number(id))
+  // const images = useSelector(state => { return Object.values(state.images) });
+  console.log('images', images)
+
 
   // const images = Object.values(useSelector(state => state.images))
   const onDelete = () => {
     dispatch(deleteCollection(id))
     history.push('/collections')
   }
+
+  useEffect(() => {
+    dispatch(getCollection(Number(id)))
+  }, [dispatch, id])
+
+  useEffect(() => {
+    dispatch(getImages())
+  }, [dispatch])
 
 
   // const auth = sessionUser.id === images[imageId]?.userId;
@@ -37,22 +49,21 @@ function SelectedCollection() {
       <p>TEST TEST TEST </p>
       <button onClick={onDelete}>Delete this collection</button>
       <div>
-        <h2>{collections.title}</h2>
-        <div>
-          <ul>
-            {images && images.map(image => {
-              <li key={image.id} to={`/images/${image.id}`}>
-                <p>testingggggggggggggggggggggggg</p>
-              </li>
-            })}
-          </ul>
-        </div>
+        {images.map((image, idx) => {
+          return (
+            <div key={idx}>
+              <img src={image.imageUrl} style={{ height: '200px', width: '200px' }} alt=''></img>
+            </div>
+          )
+        })}
+        <h2>{id}</h2>
       </div>
     </div>
   )
 }
 
 export default SelectedCollection;
+
 
 
 // import { useEffect } from 'react';

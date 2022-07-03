@@ -21,14 +21,24 @@ router.get(
   })
 );
 
+// router.get(
+//   '/:id',
+//   asyncHandler(async (req, res) => {
+//     const { collectionId } = req.params;
+//     const collection = await Collection.findByPk(collectionId)
+//     return res.json(collection)
+//   })
+// )
+
 router.get(
-  '/:collectionId',
-  asyncHandler(async (req, res) => {
-    const { collectionId } = req.params;
-    const collection = await Collection.findByPk(collectionId)
-    res.json(collection)
+  '/:id',
+  asyncHandler(async function (req, res) {
+    const collection = await Collection.findByPk(req.params.id);
+    return res.json(collection)
   })
-)
+);
+
+
 router.post(
   `/`,
   asyncHandler(async (req, res) => {

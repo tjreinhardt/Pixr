@@ -35,6 +35,8 @@ export const addCollection = (payload) => async dispatch => {
   dispatch(add(collection));
 };
 
+
+
 //get single collection
 export const getCollection = (id) => async dispatch => {
   const response = await csrfFetch(`/api/collections/${id}`,);
@@ -43,6 +45,8 @@ export const getCollection = (id) => async dispatch => {
     dispatch(load(collection));
   }
 };
+
+
 
 //get all
 export const getUserCollections = (id) => async dispatch => {
@@ -53,6 +57,10 @@ export const getUserCollections = (id) => async dispatch => {
     dispatch(load(userCollections));
   }
 };
+
+
+
+
 // edit
 export const editCollection = (collection) => async dispatch => {
   const response = await csrfFetch(`/api/collections/${collection.id}`, {
@@ -79,7 +87,7 @@ const initialState = {}
 const collectionsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
-    case GET_COLLECTIONS: {
+    case GET_COLLECTIONS:
       newState = {};
       action.collections.forEach(collection => {
         newState[collection.id] = collection
@@ -88,7 +96,6 @@ const collectionsReducer = (state = initialState, action) => {
         ...newState,
         ...state,
       };
-    }
     case ADD_COLLECTION:
       return { ...state, [action.collection.id]: action.collection };
     case UPDATE_COLLECTION:
