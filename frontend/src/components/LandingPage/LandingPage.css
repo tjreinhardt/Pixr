@@ -1,6 +1,8 @@
 .welcome-to-sweetr {
   font-size: 65px;
   display: flex;
+  min-width: 100vw;
+  min-height: 100vw;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -41,3 +43,8 @@
 /* .landing-page {
   background-repeat: no-repeat;
 } */
+
+.welcome-to-sweetr {
+  color: white;
+
+}

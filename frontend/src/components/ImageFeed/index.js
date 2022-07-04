@@ -31,11 +31,11 @@ const ImageFeed = () => {
 
 
   return (
-    <main>
+    <div className='image-feed-container-div'>
       <div className="image-container">
         {memoImages}
       </ div>
-    </main>
+    </div>
   );
 };
 

@@ -46,7 +46,7 @@ function ProfileButton({ user }) {
           <div>
             <li className="username-dropdown">{user.username}</li>
           </div>
-          <li className="user-email-dropdown">{user.email}</li>
+          <li className="user-email-dropdown" style={{ color: "white" }}>{user.email}</li>
           <li>
             <button className="nav-buttons" onClick={logout}>Log Out</button>
           </li>

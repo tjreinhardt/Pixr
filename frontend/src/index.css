@@ -24,3 +24,7 @@ div#root {
   width: 100%;
   overflow: scroll;
 }
+
+html {
+  /* background-color: blue; */
+}

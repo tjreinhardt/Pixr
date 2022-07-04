@@ -47,30 +47,39 @@ const AddImage = () => {
 
   return (
     <>
-      {userId && (
-        <form onSubmit={handleSubmit} className='add-image-form'>
-          <h4> Add Image </h4>
-          {errors.map((err) => (
-            <div key={err}>{err}</div>
-          ))}
-          <input
-            type="text"
-            placeholder='Title'
-            value={imageTitle}
-            onChange={updateImageTitle} />
-          <input
-            type="text"
-            placeholder="Url"
-            value={imageUrl}
-            onChange={updateImageUrl} />
-          <input
-            type="text"
-            placeholder="Description"
-            value={imageDescription}
-            onChange={updateImageDescription} />
-          <button className="nav-buttons" type="submit">Add new Image</button>
-        </form>
-      )}
+      <div className='form-container'>
+        {userId && (
+          <form onSubmit={handleSubmit} className='add-image-form'>
+            <h4> Add Image </h4>
+            {/* {errors.map((err) => (
+              <div key={err}>{err}</div>
+            ))} */}
+            <input
+              type="text"
+              placeholder='Title'
+              value={imageTitle}
+              onChange={updateImageTitle}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Url"
+              value={imageUrl}
+              onChange={updateImageUrl}
+              required />
+            <input
+              type="text"
+              placeholder="Description"
+              value={imageDescription}
+              onChange={updateImageDescription}
+              required />
+            <div>
+              <br />
+              <button className="nav-buttons" type="submit" style={{ marginTop: '15%', fontSize: '12px' }}>Add new Image</button>
+            </div>
+          </form>
+        )}
+      </div>
     </>
   );
 }

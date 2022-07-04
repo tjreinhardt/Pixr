@@ -38,13 +38,13 @@ function SignupFormPage() {
   }
 
   return (
-    <div>
+    <div className="signup-container-div">
       <form onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <label>
-          Email
+          Email*
           <input
             type="text"
             value={email}
@@ -54,7 +54,7 @@ function SignupFormPage() {
           />
         </label>
         <label>
-          Username
+          Username*
           <input
             type="text"
             value={username}
@@ -64,7 +64,7 @@ function SignupFormPage() {
           />
         </label>
         <label>
-          Password
+          Password*
           <input
             type="password"
             value={password}
@@ -74,7 +74,7 @@ function SignupFormPage() {
           />
         </label>
         <label>
-          Confirm Password
+          Confirm Password*
           <input
             type="password"
             value={confirmPassword}
@@ -83,6 +83,7 @@ function SignupFormPage() {
             required
           />
         </label>
+        <div className="required-aster-text">Fields marked with * are required</div>
         <button className="signup-form-buttons" type="submit">Sign Up</button>
       </form>
       <div className="demo-signup-div">

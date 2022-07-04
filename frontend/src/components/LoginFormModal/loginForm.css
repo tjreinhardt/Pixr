@@ -2,9 +2,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
-  width: 100%;
+  /* border: 1px solid black; */
+  border-top: none;
+  width: inherit;
   padding: 0px;
   margin: 0px;
   border-top: 0px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: none;
+}
+
+.required-aster-text {
+  font-size: 10.2px;
+  padding: 5px;
+  color: rgb(126, 0, 0);
+  width: 140px;
+}
+
+li {
+  width: 150px;
+  color: rgb(121, 0, 0);
 }

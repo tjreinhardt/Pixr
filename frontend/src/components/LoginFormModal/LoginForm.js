@@ -38,7 +38,7 @@ function LoginForm() {
           ))}
         </ul>
         <label>
-          Username or Email
+          Username or Email*
           <input
             type="text"
             value={credential}
@@ -48,7 +48,7 @@ function LoginForm() {
           />
         </label>
         <label>
-          Password
+          Password*
           <input
             type="password"
             value={password}
@@ -57,10 +57,11 @@ function LoginForm() {
             required
           />
         </label>
-        <button className="nav-buttons" type="submit">Log In</button>
+        <div className="required-aster-text">Fields marked with * are required</div>
+        <button className="nav-buttons" type="submit">Login</button>
       </form>
       <div className="demo-button-div">
-        <button className='nav-buttons' onClick={() => handleDemo()}>Demo User</button>
+        <button className='nav-buttons' onClick={() => handleDemo()}>Demo Login</button>
       </div>
     </div>
   );

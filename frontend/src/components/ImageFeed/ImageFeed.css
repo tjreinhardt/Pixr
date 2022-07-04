@@ -4,6 +4,7 @@
   width: 100%;
   border: 1px solid black;
   /* width: fit-content; */
+  filter: none;
   /* flex-wrap: wrap; */
   flex-flow: wrap;
   /* justify-content: center; */
@@ -19,4 +20,26 @@
   min-height: 19vmin;
   /* max-width: 50vmax;
   max-height: 50vmax; */
+}
+
+.body-layout-div {
+  background-color: white;
+}
+
+.image-feed-container-div {
+
+  background-image: url(https://rare-gallery.com/thumbs/531422-dessert-4k-free.jpg);
+  /* filter: blur(8px); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  position: fixed;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* filter: blur(2px); */
+  height: 100%;
+  width: 100%;
+  min-width: 200px;
+  border-bottom: none;
 }

@@ -79,19 +79,19 @@ export const SelectedImage = () => {
   return (
     <div className='target-image-container'>
       <div className='target-image-content'>
-        <h2 className='target-image-title'> {targetImage.imageTitle} </h2>
-        <div>
+        <div className='target-image-title-div'>
+          <h2 className='target-image-title'> {targetImage.imageTitle} </h2>
+        </div>
+        <div className='img-container'>
           <img src={targetImage.imageUrl} alt="" />
         </div>
+        <div className='image-description-div'>
+          <div className="target-image-description">{targetImage.imageDescription}</div>
+        </div>
         <div>
-          <p className="target-image-description">{targetImage.imageDescription}</p>
           {content}
-          {auth && (
-            <>
-              <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
-            </>)}
           {collections && <p>{collections?.title}</p>}
-          <AddToCollectionButton imageId={imageId} />
+          {/* <AddToCollectionButton imageId={imageId} /> */}
         </div>
       </div>
     </div>
