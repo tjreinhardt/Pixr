@@ -4,7 +4,7 @@
   background-color: transparent;
   border: 2px solid #000000;
   border-radius: 0.6em;
-  transition: all 150ms ease-in-out;
+  transition: all 140ms ease-in-out;
   color: #000000;
   background-color: #ffffff;
   cursor: pointer;
@@ -14,7 +14,8 @@
   font-size: 0.6rem;
   font-weight: 400;
   line-height: 1;
-  margin: 20px;
+  margin-right: 10px;
+  margin: 5px;
   padding: 1.2em 2.8em;
   text-decoration: none;
   text-align: center;
@@ -23,7 +24,9 @@
 }
 
 .nav-buttons:hover {
-  box-shadow: 0 0 5px 5px #000000, 0 0 0 0 #000000;
+  box-shadow: 0 0 3px 3px #ffffff, 0 0 0 0 #000000;
+  font-size: 0.62rem;
+  padding: 1.1em 2.8em;
   color: #ffffff;
   background-color: rgb(0, 0, 0);
 }

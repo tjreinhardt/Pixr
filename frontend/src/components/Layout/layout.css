@@ -1,0 +1,19 @@
+.layout-container-div {
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+}
+
+
+
+.body-layout-div {
+  min-height: max-content;
+  max-height: 90%;
+  min-height: 100%;
+  max-width: 100vmax;
+  /* background-image: url('https://images4.alphacoders.com/276/thumb-1920-276894.jpg'); */
+  background-size: contain;
+  background-position: top;
+  background-repeat: no-repeat;
+}

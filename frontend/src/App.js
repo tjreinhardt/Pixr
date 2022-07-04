@@ -14,6 +14,8 @@ import GetCollections from "./components/Collections/GetCollections";
 // import AddToCollectionButton from "./components/Collections/AddToCollection";
 import SelectedCollection from "./components/SelectedCollection";
 import CollectionForm from "./components/Collections/CollectionForm";
+import Layout from "./components/Layout/layout";
+import Footer from "./components/Layout/Footer/Footer";
 // import AddImage from "./components/AddImage";
 // import LoginFormPage from "./components/LoginFormPage";
 // import DemoLogin from "./components/LoginFormPage/DemoLogin";
@@ -38,15 +40,10 @@ function App() {
   //   if (user) dispatch(load())
   // }, [dispatch, user])
 
-  //! TODO
-  /**
-   ** Every Route component should be in a folder 'pages'
-   */
-
-  return (
+  return isLoaded && (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <Layout isLoaded={isLoaded}>
+        {/* <Navigation isLoaded={isLoaded} /> */}
         <Switch>
           <Route path="/images" exact>
             <ImageFeed />
@@ -76,9 +73,10 @@ function App() {
             <LandingPage />
           </Route>
         </Switch>
-      )}
+      </Layout>
+      <Footer />
     </>
-  );
+  )
 }
 
 export default App;

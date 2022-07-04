@@ -15,7 +15,7 @@ const ImageFeed = () => {
     () => images.map((image) => {
       return (
         <NavLink key={image.id} to={`/images/${image.id}`}>
-          <ImageCard imageURL={image.imageUrl} />
+          <ImageCard className="image-card" imageURL={image.imageUrl} />
         </NavLink>
       );
     }),

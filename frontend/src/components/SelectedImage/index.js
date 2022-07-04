@@ -85,10 +85,11 @@ export const SelectedImage = () => {
         </div>
         <div>
           <p className="target-image-description">{targetImage.imageDescription}</p>
+          {content}
           {auth && (
             <>
               <button className="nav-buttons" onClick={onDelete}>Delete Image</button>
-            </>)}{content}
+            </>)}
           {collections && <p>{collections?.title}</p>}
           <AddToCollectionButton imageId={imageId} />
         </div>

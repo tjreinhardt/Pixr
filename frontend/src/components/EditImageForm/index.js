@@ -45,7 +45,7 @@ const EditImageForm = ({ image, hideForm }) => {
 
 
   return (
-    <>
+    <><body>
       {userId && (
         <form onSubmit={onSubmit} className='form'>
           <h4> Update image </h4>
@@ -80,6 +80,7 @@ const EditImageForm = ({ image, hideForm }) => {
           <button type="submit">Update Image</button>
         </form>)
       }
+    </body>
     </>
   )
 };
