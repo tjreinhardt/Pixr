@@ -32,10 +32,7 @@ function Root() {
     </Provider>
   );
 }
-
-// const container = document.getElementById('root');
-// const root = createRoot(container);
-// root.render(
+// fuck
 ReactDOM.render(
   <React.StrictMode>
     <Root />
