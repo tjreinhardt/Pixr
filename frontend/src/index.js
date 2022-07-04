@@ -32,7 +32,6 @@ function Root() {
     </Provider>
   );
 }
-// fuck
 ReactDOM.render(
   <React.StrictMode>
     <Root />
