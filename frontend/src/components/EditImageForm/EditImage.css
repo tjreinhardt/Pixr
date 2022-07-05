@@ -6,11 +6,6 @@ form {
   background-color: white;
 }
 
-input {
-  /* box-shadow: 0 0 5px 1px #000000, 0 0 0 #ffffff; */
-  /* font-weight: 5; */
-}
-
 .edit-image-form-container {
   margin: 2%;
   padding: 5%;

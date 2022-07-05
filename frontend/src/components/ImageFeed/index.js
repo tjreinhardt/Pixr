@@ -14,7 +14,7 @@ const ImageFeed = () => {
   const memoImages = React.useMemo(
     () => images.map((image) => {
       return (
-        <NavLink key={image.id} to={`/images/${image.id}`}>
+        <NavLink className="image-cards" key={image.id} to={`/images/${image.id}`}>
           <ImageCard className="image-card" imageURL={image.imageUrl} />
         </NavLink>
       );
