@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-self: flex-start;
   width: 100%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 5px;
   filter: none;
   flex-flow: wrap;

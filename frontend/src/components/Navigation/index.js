@@ -27,7 +27,7 @@ function Navigation({ isLoaded }) {
     <div className='nav-wrapper'>
       <ul>
         <li>
-          <NavLink className="sweetr-logo-nav" exact to="/" style={{ fontSize: "36px", position: "absolute", left: "0", marginLeft: "10px", textDecoration: "none", color: "white", display: "flex", justifyContent: "flex-start" }}>Sweetr</NavLink>
+          <NavLink className="sweetr-logo-nav" exact to="/" style={{ fontSize: "36px", position: "absolute", left: "0", marginLeft: "10px", height: "100%", textDecoration: "none", color: "white", display: "flex", alignSelf: "center", justifyContent: "flex-start" }}>Sweetr</NavLink>
           {isLoaded && sessionLinks}
         </li>
       </ul>
