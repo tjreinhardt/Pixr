@@ -1,49 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import SignupFormPage from "./components/SignupFormPage";
 import * as sessionActions from "./store/session";
-import Navigation from "./components/Navigation";
 import ImageFeed from "./components/ImageFeed";
 import LandingPage from "./components/LandingPage";
 import SelectedImage from "./components/SelectedImage";
 import LoginFormPage from "./components/LoginFormPage";
 import AddImage from "./components/AddImage";
-import { getUserCollections } from "./store/collections"
 import GetCollections from "./components/Collections/GetCollections";
-// import AddToCollectionButton from "./components/Collections/AddToCollection";
 import SelectedCollection from "./components/SelectedCollection";
 import CollectionForm from "./components/Collections/CollectionForm";
 import Layout from "./components/Layout/layout";
 import Footer from "./components/Layout/Footer/Footer";
-// import AddImage from "./components/AddImage";
-// import LoginFormPage from "./components/LoginFormPage";
-// import DemoLogin from "./components/LoginFormPage/DemoLogin";
-// import load from "./store/images"
 
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const user = useSelector(state => state.session.user)
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (user) dispatch(getUserCollections(user.id))
-  // }, [dispatch, user])
-
-
-
-  // useEffect(() => {
-  //   if (user) dispatch(load())
-  // }, [dispatch, user])
 
   return isLoaded && (
     <>
       <Layout isLoaded={isLoaded}>
-        {/* <Navigation isLoaded={isLoaded} /> */}
         <Switch>
           <Route path="/images" exact>
             <ImageFeed />
@@ -70,7 +52,7 @@ function App() {
             <LoginFormPage />
           </Route>
           <Route path="/">
-            <LandingPage />
+            <LandingPage isLoaded={isLoaded} />
           </Route>
         </Switch>
       </Layout>

@@ -14,6 +14,7 @@ const EditImageForm = ({ image, hideForm }) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
+
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
   const [imageDescription, setImageDescription] = useState(image.imageDescription);
@@ -27,7 +28,6 @@ const EditImageForm = ({ image, hideForm }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    setErrors([]);
 
     const payload = {
       id,
@@ -37,18 +37,21 @@ const EditImageForm = ({ image, hideForm }) => {
       imageDescription,
     }
 
-
-    try {
-      const dispatchImage = await dispatch(modifyImage(payload));
-      if (dispatchImage) {
-        hideForm();
-      }
-    } catch (err) {
-      const errorResponse = await err.json();
-      const errorsArray = errorResponse.errors.filter(error => error !== "Invalid value")
-      setErrors(errorsArray)
+    const dispatchImage = await dispatch(modifyImage(payload));
+    if (dispatchImage) {
+      hideForm();
     }
   };
+  useEffect(() => {
+    let errors = [];
+    if (!imageTitle) errors.push("Please enter a title")
+    if (!imageDescription) errors.push("Please enter a description")
+    if (!imageUrl) errors.push("Please enter a URL")
+    if (imageTitle.length > 40) errors.push("Title is too long")
+    if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
+    if (imageDescription.length > 250) errors.push("Description exceeds max length")
+    setErrors(errors)
+  }, [imageTitle, imageUrl, imageDescription])
 
   const onDelete = async (e) => {
     e.preventDefault();
@@ -57,20 +60,16 @@ const EditImageForm = ({ image, hideForm }) => {
   }
 
 
-  // if (!imageTitle) errors.push("Please enter a title")
-
-
-  // if (imageTitle.length > 80) errors.push("Title is too long")
-
-  // if (imageDescription.length > 150) errors.push("Description exceeds max limit")
   return (
     <>
       <div className='edit-image-form-container'>
         {userId && (
-          <form onSubmit={onSubmit} className='form'>
-            <h4> Update image </h4>
+          <form onSubmit={onSubmit} className='update-image-form'>
+            <div className='update-image-title-div'>
+              <h4 className='update-image-title'> Update image </h4>
+            </div>
             {errors.map((error, idx) => (
-              <li key={idx}>{error}</li>
+              <li className="update-form-li" key={idx}>{error}</li>
             ))}
             <label htmlFor="title">Title</label>
             <input
@@ -94,7 +93,7 @@ const EditImageForm = ({ image, hideForm }) => {
             <input
               type="textarea"
               id="description"
-              placeholder="description"
+              placeholder="Description"
               value={imageDescription}
               onChange={updateImageDescription}
               required

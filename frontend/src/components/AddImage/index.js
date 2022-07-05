@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { createImage } from '../../store/images';
+import { useEffect } from 'react';
 
 import './AddImage.css';
 
@@ -32,18 +33,22 @@ const AddImage = () => {
       imageUrl,
       imageDescription
     };
-
-    try {
-      const addedImage = await dispatch(createImage(payload));
-      if (addedImage) {
-        history.push(`/images/${addedImage.image.id}`)
-      }
-    } catch (err) {
-      const errorRes = await err.json();
-      const errorArray = errorRes.errors.filter(error => error !== "Invalid Entry")
-      setErrors(errorArray)
+    const addedImage = await dispatch(createImage(payload));
+    if (addedImage) {
+      history.push(`/images/${addedImage.image.id}`)
     }
   };
+
+  useEffect(() => {
+    let errors = [];
+    if (!imageTitle) errors.push("Please enter a title")
+    if (!imageDescription) errors.push("Please enter a description")
+    if (!imageUrl) errors.push("Please enter a URL")
+    if (imageTitle.length > 40) errors.push("Title is too long")
+    if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
+    if (imageDescription.length > 250) errors.push("Description exceeds max length")
+    setErrors(errors)
+  }, [imageTitle, imageUrl, imageDescription])
 
   return (
     <>
@@ -51,9 +56,9 @@ const AddImage = () => {
         {userId && (
           <form onSubmit={handleSubmit} className='add-image-form'>
             <h4> Add Image </h4>
-            {/* {errors.map((err) => (
-              <div key={err}>{err}</div>
-            ))} */}
+            {errors.map((err) => (
+              <li key={err}>{err}</li>
+            ))}
             <input
               type="text"
               placeholder='Title'

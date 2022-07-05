@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { addCollection } from '../../store/collections'
+import './CreateCollection.css'
 
 
 function CollectionForm() {
@@ -30,25 +31,29 @@ function CollectionForm() {
   }, [title])
 
   return (
-    <div>
-      <h4>Create Collection</h4>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {validationErrors.map((error) => (
-            <li key={error}>{error}</li>
-          ))}
-        </ul>
-        <label> Title
-          <input
-            name="title"
-            type="text"
-            placeholder='title'
-            value={title}
-            onChange={updateTitle}>
-          </input>
-        </label>
-        <button type="submit">Create</button>
-      </form>
+    <div className='form-container'>
+      <div>
+        <form className="create-collection-form" onSubmit={handleSubmit}>
+          <h4 className='create-collection-title'>Create Collection</h4>
+          <ul>
+            {validationErrors.map((error, idx) => (
+              <div key={idx} className='error-message-div'>
+                <li key={error}>{error}</li>
+              </div>
+            ))}
+          </ul>
+          <label> Title
+            <input
+              name="title"
+              type="text"
+              placeholder='Title'
+              value={title}
+              onChange={updateTitle}>
+            </input>
+          </label>
+          <button className='nav-buttons' type="submit">Create</button>
+        </form>
+      </div>
     </div>
   )
 }

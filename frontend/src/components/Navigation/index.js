@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
@@ -18,7 +18,7 @@ function Navigation({ isLoaded }) {
       <>
         <NavLink className="nav-buttons" exact to="/">Home</NavLink>
         <LoginFormModal />
-        <NavLink className="nav-buttons" to="/signup">Sign Up</NavLink>
+        <NavLink className="nav-buttons" to="/signup">Signup</NavLink>
       </>
     );
   }
@@ -27,11 +27,11 @@ function Navigation({ isLoaded }) {
     <div className='nav-wrapper'>
       <ul>
         <li>
+          <NavLink className="sweetr-logo-nav" exact to="/" style={{ fontSize: "36px", position: "absolute", left: "0", marginLeft: "10px", textDecoration: "none", color: "white", display: "flex", justifyContent: "flex-start" }}>Sweetr</NavLink>
           {isLoaded && sessionLinks}
         </li>
       </ul>
-    </div>
-
+    </div >
   );
 }
 

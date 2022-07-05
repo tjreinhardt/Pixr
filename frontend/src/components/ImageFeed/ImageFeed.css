@@ -9,18 +9,33 @@
   flex-flow: wrap;
 }
 
-/* .image-cards {
-  height: 224px;
-} */
-
 .browser-image {
   display: flex;
+  box-sizing: border-box;
   background-size: 100%;
+  transition: all 180ms ease-in-out;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0.5px;
+  margin: 5px;
   min-width: 32.35vmin;
-  min-height: 19vmin;
+  margin-right: 50px;
+  padding-right: 50px;
+  min-height: 22vmin;
+  width: 98%;
+  opacity: 92%;
+  zoom: 99%;
+  box-shadow: 0 0 5px 3px #000000, 0 0 0 #ffffff;
+}
+
+.browser-image:hover {
+  min-width: 32.35vmin;
+  background-position: left;
+  width: 99%;
+  min-height: 22vmin;
+  z-index: 2;
+  margin-right: 25px;
+  opacity: 100%;
+  box-shadow: 0 0 5px 5px #000000, 0 0 0 #ffffff;
 }
 
 .body-layout-div {

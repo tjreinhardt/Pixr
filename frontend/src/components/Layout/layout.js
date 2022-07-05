@@ -1,7 +1,6 @@
 import React from 'react'
 import Navigation from '../Navigation'
 import './layout.css'
-// import background from "../../ImageImports/background.jpg"
 
 function Layout({ children, isLoaded }) {
   return (

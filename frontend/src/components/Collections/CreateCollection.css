@@ -1,16 +1,30 @@
-.add-image-form {
+.create-collection-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 1px solid black;
   box-shadow: 0 0 5px 1px #000000, 0 0 0 #ffffff;
-  border-radius: 2%;
+  border-radius: 5px;
   width: 100%;
   padding-top: 5%;
   padding-bottom: 6%;
-  padding-right: 7%;
-  padding-left: 7%;
+  padding-right: 20%;
+  padding-left: 20%;
   background-color: white;
 }
 
-.form-container {
+.error-message-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+li {
+  justify-content: flex-start;
+}
+
+
+.form-container-div {
   background-image: url(https://rare-gallery.com/thumbs/531422-dessert-4k-free.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,18 +39,7 @@
   border-bottom: none;
 }
 
-h4 {
-  display: flex;
-  margin-top: 10%;
-  font-size: 36px;
-  justify-content: center;
-  align-items: center;
-  width: 200px;
-}
 
-p {
-  width: 200px;
-}
 
 input {
   line-height: 30px;

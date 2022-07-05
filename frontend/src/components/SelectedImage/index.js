@@ -3,13 +3,10 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { deleteImage, findImage } from '../../store/images';
+import { findImage } from '../../store/images';
 import EditImageForm from '../EditImageForm';
-import AddToCollectionButton from '../Collections/AddToCollection';
 import { getCollection } from '../../store/collections';
 import ProfileButton from '../Navigation/ProfileButton';
-import { deleteCollection } from '../../store/collections';
-// import * as sessionActions from '../../store/session';
 
 import './SelectedImage.css';
 import image from '../../store/images'
@@ -23,18 +20,8 @@ export const SelectedImage = () => {
   const collections = useSelector(state => image && state.collections[image.collectionId])
   const targetImage = images[imageId]
 
-  // const [showEditButton, setShowEditButton] = useState(false);
-  // const [showDeleteButton, setShowDeleteButton] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
-
-  // useEffect(() => {
-  //   async function fetchImage() {
-  //     console.log('sessionUser', sessionUser)
-  //     dispatch(findImage(imageId));
-  //   }
-  //   fetchImage();
-  // }, [dispatch, imageId, history, sessionUser]);
   useEffect(() => {
     dispatch(findImage(Number(imageId)));
   }, [dispatch, imageId])
@@ -42,23 +29,13 @@ export const SelectedImage = () => {
   useEffect(() => {
     if (!images?.collectionId || collections) return;
     dispatch(getCollection(images.collectionId))
-  }, [images, collections])
+  }, [images, collections, dispatch])
 
   if (!sessionUser) {
     return history.push('/signup')
   }
   const auth = sessionUser.id === images[imageId]?.userId;
 
-
-  console.log('sessionuser', sessionUser.id)
-  // console.log('images', targetImage.userId)
-
-
-  const onDelete = async (e) => {
-    e.preventDefault();
-    dispatch(deleteImage(targetImage));
-    history.push("/images")
-  }
   if (sessionUser) {
     <ProfileButton user={sessionUser} />
   }
@@ -67,7 +44,7 @@ export const SelectedImage = () => {
   if (auth) {
     content = (
       <>
-        <EditImageForm image={targetImage} hideForm={() => setShowEditForm(false)} />
+        <EditImageForm image={targetImage} hideForm={() => setShowEditForm(!showEditForm)} />
       </>
     )
   }
@@ -91,7 +68,6 @@ export const SelectedImage = () => {
         <div>
           {content}
           {collections && <p>{collections?.title}</p>}
-          {/* <AddToCollectionButton imageId={imageId} /> */}
         </div>
       </div>
     </div>

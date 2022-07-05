@@ -1,12 +1,14 @@
 .nav-wrapper {
   position: sticky;
   display: flex;
+  min-width: 100%;
+  flex-grow: 1;
   justify-content: flex-end;
   align-items: center;
   top: 0;
   z-index: 100;
-  width: 100%;
-  height: 5%;
+  height: 50px;
+  width: 100vw;
   background-color: black;
 }
 
@@ -24,6 +26,7 @@
 
 .username-dropdown {
   font-size: 20px;
+  margin-left: 10px;
   padding-left: 5px;
   padding-right: 5px;
   color: white;
@@ -34,9 +37,8 @@
   padding-right: 2px;
 }
 
-.nav-buttons {
-  transition: all 150ms ease-in-out;
-  transition-duration: 120ms;
+.sweetr-logo-nav:hover {
+  font-size: 72px;
 }
 
 li.username-dropdown {
