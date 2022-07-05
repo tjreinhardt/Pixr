@@ -3,7 +3,7 @@
 Thanks for using Sweetr app! Here you can share images of your favorite sweets/desserts/recipes with the rest of the world! Feel free to browse and explore all the sweet treats that humanity has to offer!!
 
 
-Live-link to Sweetr here: https://sweetr-app.herokuapp.com/
+Live-link to Sweetr here: https://sweetr.herokuapp.com/signup
 
 ## Sweetr User Guide
 
