@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 const routes = require('./routes');
 const { ValidationError } = require('sequelize');
 
-
+//1
 // Create a variable called isProduction that
 // will be true if the environment is in
 // production or not by checking the environment
