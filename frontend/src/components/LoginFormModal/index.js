@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import './loginButton.css';
+import Footer from '../Layout/Footer/Footer';
 
 function LoginFormModal() {
   const [showModal, setShowModal] = useState(false);
+
 
   return (
     <>
@@ -12,8 +14,10 @@ function LoginFormModal() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <LoginForm />
+
         </Modal>
       )}
+      <Footer />
     </>
   );
 }
