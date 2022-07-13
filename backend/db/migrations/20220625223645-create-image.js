@@ -13,13 +13,13 @@ module.exports = {
         allowNull: false,
         references: {
           model: {
-           tableName: "Users",
+            tableName: "Users",
           },
         },
       },
       collectionId: {
         type: Sequelize.INTEGER,
-        unique: true
+        allowNull: true
       },
       imageUrl: {
         type: Sequelize.STRING,

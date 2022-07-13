@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 import { deleteCollection, getUserCollections } from "../../store/collections"
 import './GetCollections.css'
 
@@ -21,15 +21,14 @@ function GetCollections() {
     <div className='collections-page-wrapper'>
       <div className='collections-container-div'>
         <div className='create-collection-div-spacer'>
-
           <NavLink className="create-collection-styling" to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
         </div>
         {array.map((collection) => {
           return (
             <div className="collection-links" key={collection.id}>
-              <div className="collection-button-links">
+              <Link className="collection-button-links" to={`/collections/${collection.id}`}>
                 {collection.title}
-              </div>
+              </Link>
               <button className="delete-button" onClick={() => dispatch(deleteCollection(collection))}>
                 Delete
               </button>

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import { getCollection } from '../../store/collections'
 import { getImages } from "../../store/images";
+import { Link } from "react-router-dom";
 
 
 function SelectedCollection() {
@@ -10,7 +11,9 @@ function SelectedCollection() {
   const dispatch = useDispatch()
 
 
-  const images = useSelector(state => { return Object.values(state.images) });
+  const allImages = useSelector(state => { return Object.values(state.images) });
+  const images = allImages.filter(image => image.collectionId === Number(id))
+  console.log(images, '----------- images --------------')
 
 
 
@@ -25,10 +28,11 @@ function SelectedCollection() {
   return (
     <div className="target-collections-container-div">
       <div>
-        {images.map((_, idx) => {
+        {images?.map(image => {
           return (
-            <div key={idx}>
-            </div>
+            <Link key={image?.id} to={`/images/${image?.id}`}>
+              <img src={image?.imageUrl}></img>
+            </Link>
           )
         })}
         <h2>{id}</h2>

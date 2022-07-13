@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imagesRouter = require('./images.js');
-const collectionsRouter = require('./collections');
+const collectionsRouter = require('./collections.js');
 
 router.use('/session', sessionRouter);
 

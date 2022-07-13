@@ -10,9 +10,11 @@ import ProfileButton from '../Navigation/ProfileButton';
 
 import './SelectedImage.css';
 import image from '../../store/images'
+import AddToCollectionButton from '../Collections/AddToCollectionButton';
 
 export const SelectedImage = () => {
   const { imageId } = useParams();
+  const image = useSelector(state => state.images[imageId])
   const dispatch = useDispatch();
   const history = useHistory();
   const images = useSelector(state => state.images)
@@ -66,6 +68,9 @@ export const SelectedImage = () => {
           <div className="target-image-description">{targetImage.imageDescription}</div>
         </div>
         <div>
+        </div>
+        <div>
+          <AddToCollectionButton imageId={imageId} />
           {content}
           {collections && <p>{collections?.title}</p>}
         </div>

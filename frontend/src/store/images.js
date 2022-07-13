@@ -61,18 +61,16 @@ export const createImage = (Image) => async dispatch => {
   }
 }
 
-export const modifyImage = (image) => async dispatch => {
-  const response = await csrfFetch(`/api/images/${image.id}/edit`, {
+export const modifyImage = (newImage) => async dispatch => {
+  const response = await csrfFetch(`/api/images/${newImage.id}/edit`, {
     method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(image),
+    // headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(newImage),
   })
-  if (response.ok) {
-    const editedImage = await response.json();
-    dispatch(addImage(editedImage))
-    // might have to change the function called inside the dispatch above
-    return editedImage;
-  }
+  const image = await response.json();
+  dispatch(editImage(image))
+  // might have to change the function called inside the dispatch above
+  // return image;
 }
 
 
