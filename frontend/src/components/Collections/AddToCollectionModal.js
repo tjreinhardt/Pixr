@@ -28,20 +28,20 @@ function AddToCollectionModal({ closeModal, imageId }) {
 
   const addToCollection = (collectionId) => {
     const newImage = {
-      id: imageId,
-      collectionId,
       userId,
-      description: image.imageDescription,
-      imageUrl: image.imageUrl
+      // title,
+      collectionId,
+      // description: image.imageDescription,
+      // imageUrl: image.imageUrl
     }
     dispatch(modifyImage(newImage))
     closeModal();
   }
   return (
     <div onClick={closeModal}>
-      <div onClick={(e) => e.stopPropagation()}>
+      <div className='add-to-collection-modal-bg' onClick={(e) => e.stopPropagation()}>
         {collections.map(collection => {
-          return <div onClick={() => addToCollection(collection.id)} key={collection.id}>{collection.title}</div>
+          return <button className='create-collection-styling' style={{ fontSize: "8px" }} onClick={() => addToCollection(collection.id)} key={collection.id}>{collection.title}</button>
         })}
       </div>
 

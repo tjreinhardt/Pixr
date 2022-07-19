@@ -23,7 +23,7 @@ function AddToCollectionButton({ imageId }) {
 
   return (
     <div>
-      <button onClick={openModal}>Add to Collection</button>
+      <button className='create-collection-styling' style={{ fontSize: "12px" }} onClick={openModal}>Add to Collection</button>
       {showModal && (
         <AddToCollectionModal imageId={imageId} closeModal={closeModal} />
       )}
