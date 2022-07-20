@@ -1,7 +1,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
-import './Map.css'
+// import './Map.css'
 mapboxgl.accessToken = 'pk.eyJ1IjoidGpyZWluaGFyZHQiLCJhIjoiY2w1dHU0MHZpMGowejNicDd2dTR2bnB6biJ9.4wFUQAyVbEJF2SnF2a1ILw';
 
 export default function Map() {
@@ -30,6 +30,7 @@ export default function Map() {
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
+
 
   return (
     <div>
