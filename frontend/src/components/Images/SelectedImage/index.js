@@ -70,7 +70,7 @@ export const SelectedImage = () => {
         <div>
         </div>
         <div>
-          <AddToCollectionButton imageId={imageId} />
+          {/* <AddToCollectionButton imageId={imageId} /> */}
           {content}
           {collections && <p>{collections?.title}</p>}
         </div>

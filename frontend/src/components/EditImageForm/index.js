@@ -5,23 +5,24 @@ import { deleteImage } from '../../store/images';
 import { useSelector, useDispatch } from 'react-redux';
 import { modifyImage } from '../../store/images';
 import './EditImage.css';
+import AddToCollectionButton from '../Collections/AddToCollectionButton';
 
 
 const EditImageForm = ({ image, hideForm }) => {
   const id = image.id;
-  const { imageId } = useParams();
+  const { imageId, collectionId } = useParams();
   const userId = useSelector(state => state.session.user?.id);
   const dispatch = useDispatch();
   const history = useHistory();
 
-
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
   const [imageDescription, setImageDescription] = useState(image.imageDescription);
-
+  const [imageCollection, setImageCollection] = useState('');
   const updateImageTitle = (e) => setImageTitle(e.target.value);
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateImageDescription = (e) => setImageDescription(e.target.value);
+  const updateImageCollection = (e) => setImageCollection(e.target.value)
   const [errors, setErrors] = useState([]);
   const images = useSelector(state => state.images)
   const targetImage = images[imageId]
@@ -32,6 +33,7 @@ const EditImageForm = ({ image, hideForm }) => {
     const payload = {
       id,
       userId,
+      collectionId,
       imageTitle,
       imageUrl,
       imageDescription,
@@ -50,6 +52,7 @@ const EditImageForm = ({ image, hideForm }) => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
+    if (!imageCollection) errors.push("test fail")
     setErrors(errors)
   }, [imageTitle, imageUrl, imageDescription])
 
@@ -98,11 +101,21 @@ const EditImageForm = ({ image, hideForm }) => {
               onChange={updateImageDescription}
               required
             />
+            <label>collection</label>
+            <input
+              type="input"
+              id="CollectionTest"
+              placeholder="collectionTest"
+              value={imageCollection}
+              onChange={updateImageCollection}
+              required
+            />
             <br />
             <div className='edit-image-buttons-container'>
               <button className="nav-buttons" type="submit">Update</button>
               <button className="nav-buttons" onClick={onDelete}>Delete</button>
             </div>
+            <AddToCollectionButton></AddToCollectionButton>
           </form>)
         }
       </div>

@@ -4,16 +4,33 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
+  <!-- <meta name="theme-color" content="#000000" /> -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>Sweetr</title>
   <link rel="icon" type="image/x-icon" href="./favicon.ico">
   <script src="https://kit.fontawesome.com/f363eb91f6.js" crossorigin="anonymous"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js"></script>
 </head>
 
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoidGpyZWluaGFyZHQiLCJhIjoiY2w1dHR3cjZvMm94dDNkcGk4ZndxYWw0NSJ9.RbSlgoxB4Jz_b0m3AK8v7g';
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/satellite-streets-v11',
+      zoom: 1.5,
+      center: [30, 50],
+      projection: 'globe'
+    });
+
+    map.on('load', () => {
+      // Set the default atmosphere style
+      map.setFog({});
+    });
+  </script>
 </body>
 
 </html>

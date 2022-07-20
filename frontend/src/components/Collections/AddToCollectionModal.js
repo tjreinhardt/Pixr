@@ -1,6 +1,7 @@
 import React from 'react'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { getUserCollections } from '../../store/collections'
 import { modifyImage } from '../../store/images'
 
@@ -8,7 +9,7 @@ import { modifyImage } from '../../store/images'
 
 
 function AddToCollectionModal({ closeModal, imageId }) {
-
+  const [title, setTitle] = useState('')
   const dispatch = useDispatch()
 
   const userId = useSelector((state) => state.session.user.id)
@@ -25,16 +26,14 @@ function AddToCollectionModal({ closeModal, imageId }) {
     dispatch(getUserCollections(userId))
   }, [userId, dispatch])
 
-
   const addToCollection = (collectionId) => {
-    const newImage = {
-      userId,
-      // title,
+    const newPic = {
+      id: imageId,
       collectionId,
-      // description: image.imageDescription,
-      // imageUrl: image.imageUrl
+      userId,
+      imageUrl: image.imageUrl
     }
-    dispatch(modifyImage(newImage))
+    dispatch(modifyImage(newPic))
     closeModal();
   }
   return (
