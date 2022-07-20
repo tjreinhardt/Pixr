@@ -32,6 +32,7 @@ const EditImageForm = ({ image, hideForm }) => {
     const payload = {
       id,
       userId,
+      collectionId,
       imageTitle,
       imageUrl,
       imageDescription,
