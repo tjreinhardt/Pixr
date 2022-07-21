@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { modifyImage } from '../../store/images';
 import './EditImage.css';
 import { getUserCollections } from '../../store/collections';
-import AddToCollectionButton from '../Collections/AddToCollectionButton';
+// import AddToCollectionButton from '../Collections/AddToCollectionButton';
 
 
 const EditImageForm = ({ image, hideForm }) => {
@@ -27,12 +27,12 @@ const EditImageForm = ({ image, hideForm }) => {
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
   const [imageDescription, setImageDescription] = useState(image.imageDescription);
-  const [imageCollection, setImageCollection] = useState('');
+  // const [imageCollection, setImageCollection] = useState('');
   const updateImageTitle = (e) => setImageTitle(e.target.value);
   const updateCollectionId = (e) => setCollectionId(e.target.value);
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateImageDescription = (e) => setImageDescription(e.target.value);
-  const updateImageCollection = (e) => setImageCollection(e.target.value)
+  // const updateImageCollection = (e) => setImageCollection(e.target.value)
   const [errors, setErrors] = useState([]);
   const images = useSelector(state => state.images)
   const targetImage = images[imageId]
@@ -62,9 +62,10 @@ const EditImageForm = ({ image, hideForm }) => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
-    if (!imageCollection) errors.push("test fail")
+    if (!collectionId) errors.push("need an id TEST collections")
     setErrors(errors)
-  }, [imageTitle, imageUrl, imageDescription])
+  }, [imageTitle, imageUrl, imageDescription, collectionId])
+
 
   const onDelete = async (e) => {
     e.preventDefault();
@@ -75,6 +76,7 @@ const EditImageForm = ({ image, hideForm }) => {
   useEffect(() => {
     dispatch(getUserCollections(userId))
   }, [userId, dispatch])
+
 
 
   return (
@@ -122,18 +124,16 @@ const EditImageForm = ({ image, hideForm }) => {
               value={collectionId}
               onChange={updateCollectionId}
             />
-            <select>
+            {/* <select>
               {collections.map(collection => {
                 return <option key={collection.id}>{collection.title}</option>
               })}
-            </select>
+            </select> */}
             <br />
             <div className='edit-image-buttons-container'>
               <button className="nav-buttons" type="submit">Update</button>
               <button className="nav-buttons" onClick={onDelete}>Delete</button>
-              <AddToCollectionButton />
             </div>
-            <AddToCollectionButton></AddToCollectionButton>
           </form>)
         }
       </div>
