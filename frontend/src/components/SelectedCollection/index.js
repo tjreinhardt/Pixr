@@ -9,7 +9,9 @@ import { Link } from "react-router-dom";
 function SelectedCollection() {
   const { id } = useParams();
   const dispatch = useDispatch()
+  const userId = useSelector(state => state.session.user?.id);
 
+  // const sessionUser = useSelector(state => state.session.user.id)
 
   const allImages = useSelector(state => { return Object.values(state.images) });
   const images = allImages.filter(image => image.collectionId === Number(id))
@@ -31,7 +33,7 @@ function SelectedCollection() {
         {images?.map(image => {
           return (
             <Link key={image?.id} to={`/images/${image?.id}`}>
-              <img src={image?.imageUrl}></img>
+              <img src={image?.imageUrl} alt=""></img>
             </Link>
           )
         })}
@@ -40,5 +42,6 @@ function SelectedCollection() {
     </div>
   )
 }
+
 
 export default SelectedCollection;
