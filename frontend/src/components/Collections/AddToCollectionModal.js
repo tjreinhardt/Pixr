@@ -30,7 +30,6 @@ function AddToCollectionModal({ closeModal, imageId }) {
     dispatch(getUserCollections(userId))
   }, [userId, dispatch])
 
-<<<<<<< HEAD
 
 
   // console.log(userId, '---------------userId')
@@ -45,16 +44,6 @@ function AddToCollectionModal({ closeModal, imageId }) {
       imageUrl: image.imageUrl
     }
     dispatch(modifyImage(payload))
-=======
-  const addToCollection = (collectionId) => {
-    const newPic = {
-      id: imageId,
-      collectionId,
-      userId,
-      imageUrl: image.imageUrl
-    }
-    dispatch(modifyImage(newPic))
->>>>>>> main
     closeModal();
   }
 
