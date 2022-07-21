@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import AddToCollectionModal from "./AddToCollectionModal";
-
+import './AddToCollectionButton.css'
 
 function AddToCollectionButton({ imageId }) {
   const [showModal, setShowModal] = useState(false);
@@ -22,10 +22,10 @@ function AddToCollectionButton({ imageId }) {
   }, [showModal]);
 
   return (
-    <div>
+    <div className="add-to-collection-wrapper">
       <button className='create-collection-styling' style={{ fontSize: "12px" }} onClick={openModal}>Add to Collection</button>
       {showModal && (
-        <AddToCollectionModal imageId={imageId} closeModal={closeModal} />
+        <AddToCollectionModal />
       )}
     </div>
   )

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import Map from '../Map/Map';
 
 function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);

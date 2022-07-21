@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { findImage } from '../../store/images';
+import { findImage } from '../../../store/images';
 import EditImageForm from '../EditImageForm';
-import { getCollection } from '../../store/collections';
-import ProfileButton from '../Navigation/ProfileButton';
+import { getCollection } from '../../../store/collections';
+import ProfileButton from '../../Navigation/ProfileButton';
 
 import './SelectedImage.css';
-// import image from '../../store/images'
-import AddToCollectionButton from '../Collections/AddToCollectionButton';
+// import image from '../../../store/images'
+import AddToCollectionButton from '../../Collections/AddToCollectionButton';
 
 export const SelectedImage = () => {
   const { imageId } = useParams();
@@ -69,7 +69,7 @@ export const SelectedImage = () => {
         </div>
         <div>
         </div>
-        <div className='collection-button-div'>
+        <div>
           {/* <AddToCollectionButton imageId={imageId} /> */}
           {content}
           {collections && <p>{collections?.title}</p>}

@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { deleteImage } from '../../store/images';
+import { deleteImage } from '../../../store/images';
 import { useSelector, useDispatch } from 'react-redux';
-import { modifyImage } from '../../store/images';
+import { modifyImage } from '../../../store/images';
 import './EditImage.css';
-import { getUserCollections } from '../../store/collections';
-import AddToCollectionButton from '../Collections/AddToCollectionButton';
 
 
 const EditImageForm = ({ image, hideForm }) => {
@@ -15,24 +13,15 @@ const EditImageForm = ({ image, hideForm }) => {
   const userId = useSelector(state => state.session.user?.id);
   const dispatch = useDispatch();
   const history = useHistory();
-  // const collection = useSelector(state => state.session.user)
-  const collections = useSelector((state) => {
-    return Object.values(state.collections).filter((collection) => {
-      return collection.userId === userId
-    })
-  })
 
 
-  const [collectionId, setCollectionId] = useState(image.collectionId)
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
   const [imageDescription, setImageDescription] = useState(image.imageDescription);
-  const [imageCollection, setImageCollection] = useState('');
+
   const updateImageTitle = (e) => setImageTitle(e.target.value);
-  const updateCollectionId = (e) => setCollectionId(e.target.value);
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateImageDescription = (e) => setImageDescription(e.target.value);
-  const updateImageCollection = (e) => setImageCollection(e.target.value)
   const [errors, setErrors] = useState([]);
   const images = useSelector(state => state.images)
   const targetImage = images[imageId]
@@ -62,7 +51,6 @@ const EditImageForm = ({ image, hideForm }) => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
-    if (!imageCollection) errors.push("test fail")
     setErrors(errors)
   }, [imageTitle, imageUrl, imageDescription])
 
@@ -71,10 +59,6 @@ const EditImageForm = ({ image, hideForm }) => {
     dispatch(deleteImage(targetImage));
     history.push("/images")
   }
-
-  useEffect(() => {
-    dispatch(getUserCollections(userId))
-  }, [userId, dispatch])
 
 
   return (
@@ -115,25 +99,11 @@ const EditImageForm = ({ image, hideForm }) => {
               onChange={updateImageDescription}
               required
             />
-            <input
-              type="text"
-              id="collectionId"
-              placeholder="CollectionId"
-              value={collectionId}
-              onChange={updateCollectionId}
-            />
-            <select>
-              {collections.map(collection => {
-                return <option key={collection.id}>{collection.title}</option>
-              })}
-            </select>
             <br />
             <div className='edit-image-buttons-container'>
               <button className="nav-buttons" type="submit">Update</button>
               <button className="nav-buttons" onClick={onDelete}>Delete</button>
-              <AddToCollectionButton />
             </div>
-            <AddToCollectionButton></AddToCollectionButton>
           </form>)
         }
       </div>
