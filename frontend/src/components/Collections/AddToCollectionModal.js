@@ -11,6 +11,9 @@ function AddToCollectionModal({ closeModal, imageId }) {
 
   const dispatch = useDispatch()
 
+  // const [imageTitle, setImageTitle] = useState('');
+  // const [imageUrl, setImageUrl] = useState('');
+  // const [imageDescription, setImageDescription] = useState('');
   const userId = useSelector((state) => state.session.user.id)
 
   const collections = useSelector((state) => {
@@ -18,6 +21,7 @@ function AddToCollectionModal({ closeModal, imageId }) {
       return collection.userId === userId
     })
   })
+  // console.log(collections[1], '---------------collectionId')
 
   const image = useSelector(state => state.images[imageId])
 
@@ -26,17 +30,22 @@ function AddToCollectionModal({ closeModal, imageId }) {
   }, [userId, dispatch])
 
 
-  const addToCollection = (collectionId) => {
-    const newImage = {
+
+  // console.log(userId, '---------------userId')
+
+  const addToCollection = () => {
+    const payload = {
+      id: image.id,
       userId,
-      // title,
-      collectionId,
-      // description: image.imageDescription,
-      // imageUrl: image.imageUrl
+      collectionId: collections[1].collection.id,
+      imageTitle: image.imageTitle,
+      imageDescription: image.imageDescription,
+      imageUrl: image.imageUrl
     }
-    dispatch(modifyImage(newImage))
+    dispatch(modifyImage(payload))
     closeModal();
   }
+
   return (
     <div onClick={closeModal}>
       <div className='add-to-collection-modal-bg' onClick={(e) => e.stopPropagation()}>
@@ -44,7 +53,6 @@ function AddToCollectionModal({ closeModal, imageId }) {
           return <button className='create-collection-styling' style={{ fontSize: "8px" }} onClick={() => addToCollection(collection.id)} key={collection.id}>{collection.title}</button>
         })}
       </div>
-
     </div>
   )
 }

@@ -13,6 +13,7 @@ import SelectedCollection from "./components/SelectedCollection";
 import CollectionForm from "./components/Collections/CollectionForm";
 import Layout from "./components/Layout/layout";
 import Footer from "./components/Layout/Footer/Footer";
+import Map from "./components/Map/Map";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,9 @@ function App() {
           </Route>
           <Route path="/login">
             <LoginFormPage />
+          </Route>
+          <Route>
+            <Map path="/map" />
           </Route>
           <Route path="/">
             <LandingPage isLoaded={isLoaded} />

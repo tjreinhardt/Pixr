@@ -9,7 +9,7 @@ import { getCollection } from '../../store/collections';
 import ProfileButton from '../Navigation/ProfileButton';
 
 import './SelectedImage.css';
-import image from '../../store/images'
+// import image from '../../store/images'
 import AddToCollectionButton from '../Collections/AddToCollectionButton';
 
 export const SelectedImage = () => {

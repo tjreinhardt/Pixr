@@ -14,21 +14,25 @@ const AddImage = () => {
   const [imageTitle, setImageTitle] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [imageDescription, setImageDescription] = useState('');
+  const [collectionId, setCollectionId] = useState('');
   const [errors, setErrors] = useState([]);
 
   const updateImageTitle = (e) => setImageTitle(e.target.value);
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateImageDescription = (e) => setImageDescription(e.target.value);
+  const updateCollectionId = (e) => setCollectionId(e.target.value)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setImageTitle('');
     setImageUrl('')
     setImageDescription('')
+    setCollectionId('')
 
 
     const payload = {
       userId,
+      collectionId,
       imageTitle,
       imageUrl,
       imageDescription
@@ -47,8 +51,9 @@ const AddImage = () => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
+    if (!collectionId) errors.push('needs a collection ID test error')
     setErrors(errors)
-  }, [imageTitle, imageUrl, imageDescription])
+  }, [imageTitle, imageUrl, imageDescription, collectionId])
 
   return (
     <>
@@ -77,6 +82,13 @@ const AddImage = () => {
               placeholder="Description"
               value={imageDescription}
               onChange={updateImageDescription}
+              required />
+            <label>what</label>
+            <input
+              type="text"
+              placeholder="CollectionIdNumber"
+              value={collectionId}
+              onChange={updateCollectionId}
               required />
             <div>
               <br />
