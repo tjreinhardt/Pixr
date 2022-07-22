@@ -36,13 +36,17 @@ While logged in, a user can browse all images posted on the app, as well as view
 - Express.js
 - HTML
 - CSS
+- React-Map-GL
+- React-Mapbox-GL
+- Turf
 
 ## Features of Sweetr
 
 - Sign-In/Log-In with user creditionals
 - Demo User
-- Create, Read, Update, and Destroy Images with error handling
+- Create, Read, Update, and Destroy Images with geolocation and error handling
 - Create, Read and Destroy Collections with error gandling
+- Interactive Map Tool that users may view/update
 
 ## Future Goals For This App
 
@@ -55,7 +59,7 @@ While logged in, a user can browse all images posted on the app, as well as view
 
 ## Unique Technical Implementation
 
-Approaching this project as a former audio engineer, I know how large amounts of files/big data can be an issue when designing an app. After researching a few methods on how to better store, or cache data, I made a cool implementation to the image feed! I used a technique that my brother taught me during my first week of react, called useMemo. This method uses 'Memoization', which will store data in a cache, causing data to load much quicker upon a re-render, as it only has to return that data from the stored cache. Upon using the app, youll notice that the image-feed loads incredibly quick, despite the fact that most of the images used are 4k resolution images! Check out the implementation below:
+Approaching this project as a former audio engineer, I know firsthand how data storage can be an issue when designing an app. After researching a few methods on how to better store, or cache data, I made a cool implementation to the image feed! I used a technique that my brother taught me during my first week of react, called useMemo. This method uses 'Memoization', which will store data in a cache, causing data to load much quicker upon a re-render, as it only has to return that data from the stored cache. Upon using the app, youll notice that the image-feed loads incredibly quick, despite the fact that most of the images used are 4k resolution images! Check out the implementation below:
 
 ```
   const memoImages = React.useMemo(
