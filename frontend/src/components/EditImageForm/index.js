@@ -15,14 +15,15 @@ const EditImageForm = ({ image, hideForm }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   const userId = useSelector(state => state.session.user?.id);
-  // const collection = useSelector(state => state.session.user)
-  // const collections = useSelector((state) => {
-  //   return Object.values(state.collections).filter((collection) => {
-  //     return collection.userId === userId
-  //   })
-  // })
+  const collection = useSelector(state => state.session.user)
+  const collections = useSelector((state) => {
+    return Object.values(state.collections).filter((collection) => {
+      return collection.userId === userId
+    })
+  })
 
   const [collectionId, setCollectionId] = useState(image.collectionId)
+  const [title, setTitle] = useState(collection.title)
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
   const [imageDescription, setImageDescription] = useState(image.imageDescription);
@@ -30,6 +31,7 @@ const EditImageForm = ({ image, hideForm }) => {
   const updateCollectionId = (e) => setCollectionId(Number(e.target.value));
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateImageDescription = (e) => setImageDescription(e.target.value);
+
   const [errors, setErrors] = useState([]);
   const images = useSelector(state => state.images)
   const targetImage = images[imageId]
@@ -116,18 +118,22 @@ const EditImageForm = ({ image, hideForm }) => {
               onChange={updateImageDescription}
               required
             />
-            <input
+            {/* <input
               type="number"
               id="collectionId"
               placeholder="CollectionId"
               value={collectionId}
               onChange={updateCollectionId}
-            />
-            {/* <select>
+            /> */}
+            <label>Move to Collection</label>
+            <select
+              value={collectionId}
+              onChange={updateCollectionId}
+            >
               {collections.map(collection => {
-                return <option key={collection.id}>{collection.title}</option>
+                return <option key={collection.id} label={collection.title}>{collection.id}</option>
               })}
-            </select> */}
+            </select>
             <br />
             <div className='edit-image-buttons-container'>
               <button className="nav-buttons" type="submit">Update</button>
