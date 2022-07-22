@@ -25,6 +25,7 @@
   "homepage": "https://github.com/tjreinhardt/Sweetr-App-init#readme",
   "dependencies": {
     "react-map-gl": "^7.0.17",
-    "react-mapbox-gl": "^5.1.1"
+    "react-mapbox-gl": "^5.1.1",
+    "react-select": "^5.4.0"
   }
 }

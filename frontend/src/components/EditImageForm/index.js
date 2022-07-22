@@ -6,39 +6,37 @@ import { useSelector, useDispatch } from 'react-redux';
 import { modifyImage } from '../../store/images';
 import './EditImage.css';
 import { getUserCollections } from '../../store/collections';
-// import AddToCollectionButton from '../Collections/AddToCollectionButton';
+
 
 
 const EditImageForm = ({ image, hideForm }) => {
   const id = image.id;
   const { imageId } = useParams();
-  const userId = useSelector(state => state.session.user?.id);
   const dispatch = useDispatch();
   const history = useHistory();
+  const userId = useSelector(state => state.session.user?.id);
   // const collection = useSelector(state => state.session.user)
-  const collections = useSelector((state) => {
-    return Object.values(state.collections).filter((collection) => {
-      return collection.userId === userId
-    })
-  })
-
+  // const collections = useSelector((state) => {
+  //   return Object.values(state.collections).filter((collection) => {
+  //     return collection.userId === userId
+  //   })
+  // })
 
   const [collectionId, setCollectionId] = useState(image.collectionId)
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
   const [imageDescription, setImageDescription] = useState(image.imageDescription);
-  // const [imageCollection, setImageCollection] = useState('');
   const updateImageTitle = (e) => setImageTitle(e.target.value);
-  const updateCollectionId = (e) => setCollectionId(e.target.value);
+  const updateCollectionId = (e) => setCollectionId(Number(e.target.value));
   const updateImageUrl = (e) => setImageUrl(e.target.value);
   const updateImageDescription = (e) => setImageDescription(e.target.value);
-  // const updateImageCollection = (e) => setImageCollection(e.target.value)
   const [errors, setErrors] = useState([]);
   const images = useSelector(state => state.images)
   const targetImage = images[imageId]
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    history.push(`/collections/${collectionId}`)
 
     const payload = {
       id,
@@ -72,6 +70,7 @@ const EditImageForm = ({ image, hideForm }) => {
     dispatch(deleteImage(targetImage));
     history.push("/images")
   }
+
 
   useEffect(() => {
     dispatch(getUserCollections(userId))
@@ -118,7 +117,7 @@ const EditImageForm = ({ image, hideForm }) => {
               required
             />
             <input
-              type="text"
+              type="number"
               id="collectionId"
               placeholder="CollectionId"
               value={collectionId}
