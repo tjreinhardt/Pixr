@@ -42,7 +42,7 @@ While logged in, a user can browse all images posted on the app, as well as view
 
 ## Features of Sweetr
 
-- Sign-In/Log-In with user creditionals
+- Sign-Up/Log-In with user creditionals
 - Demo User
 - Create, Read, Update, and Destroy Images with geolocation and error handling
 - Create, Read and Destroy Collections with error gandling
