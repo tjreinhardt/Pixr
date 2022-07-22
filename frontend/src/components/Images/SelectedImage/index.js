@@ -10,7 +10,7 @@ import ProfileButton from '../../Navigation/ProfileButton';
 
 import './SelectedImage.css';
 // import image from '../../../store/images'
-import AddToCollectionButton from '../../Collections/AddToCollectionButton';
+// import AddToCollectionButton from '../../Collections/AddToCollectionButton';
 
 export const SelectedImage = () => {
   const { imageId } = useParams();
@@ -72,7 +72,7 @@ export const SelectedImage = () => {
         <div>
           {/* <AddToCollectionButton imageId={imageId} /> */}
           {content}
-          {collections && <p>{collections?.title}</p>}
+          {/* {collections && <p>{collections?.title}</p>} */}
         </div>
       </div>
     </div>
