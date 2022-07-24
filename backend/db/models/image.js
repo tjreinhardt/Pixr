@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     collectionId: DataTypes.INTEGER,
     imageUrl: DataTypes.TEXT,
     imageTitle: DataTypes.STRING,
-    imageDescription: DataTypes.TEXT
+    imageDescription: DataTypes.TEXT,
+    lat: DataTypes.INTEGER,
+    lng: DataTypes.INTEGER
   }, {});
   Image.associate = function (models) {
     Image.belongsTo(models.User, { foreignKey: 'userId', hooks: true });

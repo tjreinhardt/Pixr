@@ -14,6 +14,8 @@ module.exports = {
         imageTitle: "Look at this pizookie I made",
         imageUrl: "https://sugarspunrun.com/wp-content/uploads/2021/11/Pizookie-recipe-1-of-1-2.jpg",
         imageDescription: "I love pizookies :O",
+        lat: -70.1,
+        lng: 40.04
       },
     ], {});
   },

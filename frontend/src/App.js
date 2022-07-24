@@ -13,7 +13,8 @@ import SelectedCollection from "./components/SelectedCollection";
 import CollectionForm from "./components/Collections/CollectionForm";
 import Layout from "./components/Layout/layout";
 import Footer from "./components/Layout/Footer/Footer";
-import Map from "./components/Map/Map";
+// import Map from "./components/Map/Map";
+import MapGL from "./components/Map/MapGL";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,7 +54,7 @@ function App() {
             <LoginFormPage />
           </Route>
           <Route>
-            <Map path="/map" />
+            <MapGL path="/map" />
           </Route>
           <Route path="/">
             <LandingPage isLoaded={isLoaded} />
