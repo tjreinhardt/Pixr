@@ -4,6 +4,7 @@ import Map, { Marker, Popup } from 'react-map-gl';
 // import { getImages } from '../../store/images';
 // import { useDispatch, useSelector } from 'react-redux';
 import Pin from './Pin'
+import { GeolocateControl } from 'react-map-gl';
 import './Map.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoidGpyZWluaGFyZHQiLCJhIjoiY2w1dHU0MHZpMGowejNicDd2dTR2bnB6biJ9.4wFUQAyVbEJF2SnF2a1ILw'; // Set your mapbox token here
@@ -16,11 +17,27 @@ export default function MapGL() {
   const [popupInfo, setPopupInfo] = useState(null);
   const [year, setYear] = useState(2015);
   const [featureCollection, setFeatureCollection] = useState(null);
+  const [newLocation, setNewLocation] = useState(null);
+  const [value, setValue] = useState('');
   // const [viewState, setViewState] = useState({
   //   latitude: 40,
   //   longitude: -100,
   //   zoom: 3
   // })
+  const sendNews = () => {
+    setPopupInfo([
+      ...pins,
+      {
+        id: `${newLocation.lat + Math.random()}`,
+        lat: newLocation.lat,
+        long: newLocation.long,
+        text: value,
+      },
+    ]);
+    setValue('');
+    setNewLocation(null);
+  };
+  // console.log(newLocation.lat, newLocation.lng)
 
   const testImages = [{
     userId: 1,
@@ -104,9 +121,21 @@ export default function MapGL() {
         projection="globe"
         mapboxAccessToken={MAPBOX_TOKEN}
 
+
+
       // interactiveLayerIds={['images']}
       // onMouseMove={onHover}
       >
+
+        <GeolocateControl
+          // style={geolocateControlStyle}
+          positionOptions={{ enableHighAccuracy: true }}
+          trackUserLocation={true}
+          onGeolocate={(position) => {
+            // get latitude and longitude of user current location
+            setNewLocation([position.coords.latitude, position.coords.longitude]);
+          }}
+        />
         {pins}
 
         {popupInfo && (
