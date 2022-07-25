@@ -44,7 +44,8 @@
 
 .image-feed-container-div {
 
-  background-image: url(https://rare-gallery.com/thumbs/531422-dessert-4k-free.jpg);
+  /* background-image: url(https://rare-gallery.com/thumbs/531422-dessert-4k-free.jpg); */
+  background-color: gray;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;

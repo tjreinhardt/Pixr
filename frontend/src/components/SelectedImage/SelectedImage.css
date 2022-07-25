@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('https://images4.alphacoders.com/276/thumb-1920-276894.jpg');
+  /* background-image: url('https://images4.alphacoders.com/276/thumb-1920-276894.jpg'); */
+  background-color: gray;
   background-size: cover;
   min-height: max-content;
   max-height: 90%;

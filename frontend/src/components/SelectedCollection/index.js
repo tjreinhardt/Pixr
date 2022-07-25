@@ -67,18 +67,20 @@ function SelectedCollection() {
   }
 
   return (
-    <div className="target-collections-container-div">
-      <button onClick={onDelete}>Delete This Collection</button>
-      <div>
-        {images?.map(image => {
-          return (
-            <Link key={image?.id} to={`/images/${image?.id}`}>
-              <img src={image?.imageUrl} alt=""></img>
-            </Link>
-          )
-        })}
-        <h2>{id}</h2>
-        {/* {content} */}
+    <div style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: "gray" }}>
+      <div className="target-collections-container-div">
+        <button className="nav-buttons" onClick={onDelete}>Delete This Collection</button>
+        <div>
+          {images?.map(image => {
+            return (
+              <Link key={image?.id} to={`/images/${image?.id}`}>
+                <img src={image?.imageUrl} alt=""></img>
+              </Link>
+            )
+          })}
+          <h2>{id}</h2>
+          {/* {content} */}
+        </div>
       </div>
     </div>
   )
