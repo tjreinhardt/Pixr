@@ -10,3 +10,12 @@
   margin: 4px 2px;
   border-radius: 50%;
 }
+
+
+.popup-info-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}

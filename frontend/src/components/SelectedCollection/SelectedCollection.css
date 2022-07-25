@@ -1,0 +1,20 @@
+.image-container-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: top;
+}
+
+.target-collections-container-div {
+  margin-left: 29%;
+}
+
+#delete-collection-button {
+  position: top;
+  margin-left: 20%;
+}
+
+/* #delete-collection-button:hover {
+  position: absolute;
+  /* display: none; */
+/* display: true; */

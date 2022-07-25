@@ -11,11 +11,11 @@ module.exports = {
     return queryInterface.bulkInsert('Images', [
       {
         userId: 1,
-        imageTitle: "Look at this pizookie I made",
-        imageUrl: "https://sugarspunrun.com/wp-content/uploads/2021/11/Pizookie-recipe-1-of-1-2.jpg",
-        imageDescription: "I love pizookies :O",
-        lat: -70.1,
-        lng: 40.04
+        imageTitle: "I told them I was lost",
+        imageUrl: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/01/28/12/pyramid-crop1.jpg?quality=75&width=982&height=726&auto=webp",
+        imageDescription: "But we all know I'm not supposed to be up here",
+        lat: 29.9792,
+        lng: 31.1342
       },
     ], {});
   },

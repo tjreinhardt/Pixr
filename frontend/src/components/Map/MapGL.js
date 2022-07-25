@@ -4,6 +4,7 @@ import Map, { Marker, Popup } from 'react-map-gl';
 // import { getImages } from '../../store/images';
 // import { useDispatch, useSelector } from 'react-redux';
 import Pin from './Pin'
+import './Map.css'
 
 const MAPBOX_TOKEN = 'pk.eyJ1IjoidGpyZWluaGFyZHQiLCJhIjoiY2w1dHU0MHZpMGowejNicDd2dTR2bnB6biJ9.4wFUQAyVbEJF2SnF2a1ILw'; // Set your mapbox token here
 
@@ -23,11 +24,11 @@ export default function MapGL() {
 
   const testImages = [{
     userId: 1,
-    imageTitle: "Look at this pizookie I made",
-    imageUrl: "https://sugarspunrun.com/wp-content/uploads/2021/11/Pizookie-recipe-1-of-1-2.jpg",
-    imageDescription: "I love pizookies :O",
-    lng: -117.99955,
-    lat: 33.65863
+    imageTitle: "I told them I was lost",
+    imageUrl: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/01/28/12/pyramid-crop1.jpg?quality=75&width=982&height=726&auto=webp",
+    imageDescription: "But we all know I'm not supposed to be up here",
+    lng: 31.1342,
+    lat: 29.9792
   }]
 
   const pins = useMemo(
@@ -98,9 +99,11 @@ export default function MapGL() {
           longitude: -100,
           zoom: 3
         }}
-        style={{ height: '900px', width: '900px' }}
-        mapStyle="mapbox://styles/mapbox/light-v9"
+        style={{ height: '100vh', width: '100vw' }}
+        mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
+        projection="globe"
         mapboxAccessToken={MAPBOX_TOKEN}
+
       // interactiveLayerIds={['images']}
       // onMouseMove={onHover}
       >
@@ -113,8 +116,10 @@ export default function MapGL() {
             latitude={Number(popupInfo.lat)}
             onClose={() => setPopupInfo(null)}
           >
-            <div style={{ position: 'relative', width: '110px' }}>
-              {/* {popupInfo.imageUrl} */}
+            <div className="popup-info-container" style={{ position: 'relative', width: '200px' }}>
+              {popupInfo.imageTitle}
+              <br />
+              {popupInfo.imageDescription}
               <img width="100%" height="100%" src={popupInfo.imageUrl} alt="" />
             </div>
 

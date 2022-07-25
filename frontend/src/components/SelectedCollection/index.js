@@ -5,7 +5,7 @@ import { deleteCollection, getUserCollections } from '../../store/collections'
 import { getImages } from "../../store/images";
 import { Link } from "react-router-dom";
 import ProfileButton from "../Navigation/ProfileButton";
-
+import './SelectedCollection.css'
 
 function SelectedCollection() {
   const dispatch = useDispatch();
@@ -41,21 +41,21 @@ function SelectedCollection() {
     <ProfileButton user={sessionUser} />
   }
 
-  let content = null;
-  if (sessionUser) {
-    content = (
-      <>
-        <button>hiiii</button>
-        {images?.map((image) => {
-          return (
-            <Link key={image?.id} to={`/images/${image?.id}`}>
-              <img src={image?.imageUrl} alt=""></img>
-            </Link>
-          )
-        })}
-      </>
-    )
-  }
+  // let content = null;
+  // if (sessionUser) {
+  //   content = (
+  //     <>
+  //       <button>hiiii</button>
+  //       {images?.map((image) => {
+  //         return (
+  //           <Link key={image?.id} to={`/images/${image?.id}`}>
+  //             <img src={image?.imageUrl} alt=""></img>
+  //           </Link>
+  //         )
+  //       })}
+  //     </>
+  //   )
+  // }
   // if (images.length) {
   //   return null;
   // }
@@ -67,10 +67,11 @@ function SelectedCollection() {
   }
 
   return (
-    <div style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: "gray" }}>
+    <div className="image-container-div" style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: "gray" }}>
       <div className="target-collections-container-div">
-        <button className="nav-buttons" onClick={onDelete}>Delete This Collection</button>
-        <div>
+        <h2 className="image-container-div">{collection.title}</h2>
+        <button className="nav-buttons" id="delete-collection-button" onClick={onDelete}>Delete This Collection</button>
+        <div >
           {images?.map(image => {
             return (
               <Link key={image?.id} to={`/images/${image?.id}`}>
@@ -78,7 +79,6 @@ function SelectedCollection() {
               </Link>
             )
           })}
-          <h2>{id}</h2>
           {/* {content} */}
         </div>
       </div>

@@ -38,7 +38,7 @@ const EditImageForm = ({ image, hideForm }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    history.push(`/collections/${collectionId}`)
+    history.push(`/images/${id}`)
 
     const payload = {
       id,
