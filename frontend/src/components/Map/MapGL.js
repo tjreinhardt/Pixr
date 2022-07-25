@@ -24,9 +24,9 @@ export default function MapGL() {
 
   const testImages = [{
     userId: 1,
-    imageTitle: "I told them I was lost",
+    imageTitle: "Yooooo",
     imageUrl: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2016/01/28/12/pyramid-crop1.jpg?quality=75&width=982&height=726&auto=webp",
-    imageDescription: "But we all know I'm not supposed to be up here",
+    imageDescription: "Aliens built it for sure",
     lng: 31.1342,
     lat: 29.9792
   }]
@@ -120,6 +120,11 @@ export default function MapGL() {
               {popupInfo.imageTitle}
               <br />
               {popupInfo.imageDescription}
+              <br />
+              <br />
+              Longitude: {popupInfo.lng}
+              <br />
+              Latitude: {popupInfo.lat}
               <img width="100%" height="100%" src={popupInfo.imageUrl} alt="" />
             </div>
 
