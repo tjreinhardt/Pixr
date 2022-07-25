@@ -1,11 +1,11 @@
-# Welcome to Sweetr!
+# Welcome to Pixr!
 
-Thanks for using Sweetr app! Here you can share images of your favorite sweets/desserts/recipes with the rest of the world! Feel free to browse and explore all the sweet treats that humanity has to offer!!
+Thanks for using Pixr app! Here you can share images of your favorite images with the rest of the world! Feel free to browse and explore all the cool images that humanity has to offer!!
 
 
-Live-link to Sweetr here: https://sweetr.herokuapp.com/signup
+Live-link to Pixr here: https://pixr.herokuapp.com/signup
 
-## Sweetr User Guide
+## Pixr User Guide
 
 Phase 1:
 1) Clone the repo and run npm install
@@ -40,7 +40,7 @@ While logged in, a user can browse all images posted on the app, as well as view
 - React-Mapbox-GL
 - Turf
 
-## Features of Sweetr
+## Features of Pixr
 
 - Sign-Up/Log-In with user creditionals
 - Demo User
