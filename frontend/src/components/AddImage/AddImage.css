@@ -26,6 +26,19 @@
   border-bottom: none;
 }
 
+.get-location-container {
+  border: 1px solid black;
+  box-shadow: 0 0 5px 1px #000000, 0 0 0 #ffffff;
+  border-radius: 2%;
+  width: 10rem;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 1%;
+  padding-left: 1%;
+  margin: 5%;
+  background-color: white;
+}
+
 h4 {
   display: flex;
   margin-top: 10%;

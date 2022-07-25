@@ -40,3 +40,7 @@
   margin: 12px;
   border-radius: 4px;
 }
+
+.add-image-map-form {
+  z-index: 2;
+}
