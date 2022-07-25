@@ -15,8 +15,8 @@ const AddImage = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [imageDescription, setImageDescription] = useState('');
   const [errors, setErrors] = useState([]);
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
   const [status, setStatus] = useState(null);
 
   const updateImageTitle = (e) => setImageTitle(e.target.value);
@@ -27,6 +27,7 @@ const AddImage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // if (!lng) window.alert('Image will not be uploaded to the map!')
     setImageTitle('');
     setImageUrl('')
     setImageDescription('')
@@ -71,8 +72,9 @@ const AddImage = () => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
+    if (lat) errors.push('Enable location service button to add an image')
     setErrors(errors)
-  }, [imageTitle, imageUrl, imageDescription])
+  }, [imageTitle, imageUrl, imageDescription, lat])
 
   return (
     <>
@@ -112,20 +114,25 @@ const AddImage = () => {
               onChange={updateImageDescription}
               required />
             <input
-              type="hidden"
-              placeholder="longitude"
+              type="number"
+              placeholder="Longitude"
               value={lng}
               onChange={updateLng}
+              required
             />
             <input
-              type="hidden"
-              placeholder="lat"
+              type="number"
+              placeholder="Latitude"
               value={lat}
               onChange={updateLat}
+              required
             />
-            {lat && (
-              <h3>Adding to map!</h3>
+            {/* {lat && (
+              <h3 style={{ color: 'green' }}>Image will be added to the map upon uploading!</h3>
             )}
+            {!lat && (
+              <h3 style={{ color: 'red' }}>Not uploading to map</h3>
+            )} */}
             <div>
               <br />
               <button className="nav-buttons" type="submit" style={{ marginTop: '15%', fontSize: '12px' }}>Add new Image</button>
