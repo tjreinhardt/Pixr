@@ -14,6 +14,15 @@ input {
 
 }
 
+.signup-container-div {
+  width: 100%;
+}
+
+.footer-div {
+  width: auto;
+  right: 0;
+}
+
 .signup-form-buttons {
   box-sizing: border-box;
   appearance: none;
@@ -49,8 +58,8 @@ input {
   justify-content: center;
   align-items: center;
   border: 1px solid black;
-  border-top: none;
-  width: 100vw;
+  border: none;
+  width: 99%;
   align-self: center;
   align-content: center;
   margin: 0px;

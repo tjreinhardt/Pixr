@@ -23,6 +23,11 @@
   font-weight: 700;
 }
 
+.footer-div {
+  width: 100%;
+  right: 0;
+}
+
 .nav-buttons:hover {
   box-shadow: 0 0 3px 3px #ffffff, 0 0 0 0 #000000;
   font-size: 0.6rem;

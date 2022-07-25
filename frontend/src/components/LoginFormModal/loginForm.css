@@ -13,6 +13,10 @@
   border-bottom-left-radius: 5px;
 }
 
+.footer-div {
+  width: 100%;
+}
+
 .login-form-box {
   display: flex;
   align-items: center;
@@ -21,7 +25,8 @@
 }
 
 #modal-background {
-  background-image: url(https://images3.alphacoders.com/210/thumb-1920-210129.jpg);
+  /* background-image: url(https://images3.alphacoders.com/210/thumb-1920-210129.jpg); */
+  background-color: gray;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
