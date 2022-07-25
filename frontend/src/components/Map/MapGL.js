@@ -99,7 +99,7 @@ export default function MapGL() {
           longitude: -100,
           zoom: 3
         }}
-        style={{ height: '100vh', width: '100vw' }}
+        style={{ position: "fixed", height: '100%', width: '100%' }}
         mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
         projection="globe"
         mapboxAccessToken={MAPBOX_TOKEN}
