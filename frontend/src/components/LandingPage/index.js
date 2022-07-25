@@ -10,7 +10,7 @@ const LandingPage = ({ isLoaded }) => {
     <div className="landing-page-container">
       <div className="landing_page">
         <div className='sweetr-welcome-div'>
-          <div className="welcome-to-sweetr">Welcome to Sweetr! {isLoaded && !sessionUser && "Login or Signup to Continue"}</div>
+          <div className="welcome-to-sweetr">Welcome to Pixr! {isLoaded && !sessionUser && "Login or Signup to Continue"}</div>
         </div>
       </div>
     </div>
