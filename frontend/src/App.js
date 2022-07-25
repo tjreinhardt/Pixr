@@ -53,8 +53,8 @@ function App() {
           <Route path="/login">
             <LoginFormPage />
           </Route>
-          <Route>
-            <MapGL path="/map" />
+          <Route path="/map">
+            <MapGL />
           </Route>
           <Route path="/">
             <LandingPage isLoaded={isLoaded} />
