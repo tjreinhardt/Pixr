@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/tjreinhardt/Sweetr-App-init#readme",
   "dependencies": {
+    "3d-react-carousel": "^1.0.0",
     "react-map-gl": "^7.0.17",
     "react-mapbox-gl": "^5.1.1",
     "react-select": "^5.4.0"
