@@ -62,16 +62,16 @@ export const SelectedImage = () => {
           <h2 className='target-image-title'> {targetImage.imageTitle} </h2>
         </div>
         <div className='img-container'>
-          <img src={targetImage.imageUrl} alt="" />
+          <img className="selected-img" src={targetImage.imageUrl} alt="" />
         </div>
         <div className='image-description-div'>
           <div className="target-image-description">{targetImage.imageDescription}</div>
         </div>
         <div>
         </div>
+        {content}
         <div className='collection-button-div'>
           {/* <AddToCollectionButton imageId={imageId} /> */}
-          {content}
           {/* {collections && <p>{collections?.title}</p>} */}
         </div>
       </div>

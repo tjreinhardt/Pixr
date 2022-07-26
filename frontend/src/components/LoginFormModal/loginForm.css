@@ -7,10 +7,11 @@
   height: 70px;
   padding: 0px;
   margin: 0px;
+  border: 1px solid white;
   border-top: 0px;
-  background-color: black;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+  background-color: rgb(0, 0, 0, .90);
+  /* border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px; */
 }
 
 .footer-div {
@@ -22,11 +23,14 @@
   align-items: center;
   justify-content: center;
   border-bottom: none;
+  border-radius: 0%;
+
+
 }
 
 #modal-background {
   /* background-image: url(https://images3.alphacoders.com/210/thumb-1920-210129.jpg); */
-  background-color: gray;
+  background-color: rgb(0, 0, 0);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50%;
@@ -38,6 +42,8 @@
   width: 100%;
   min-width: 200px;
   border-bottom: none;
+  /* border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px; */
 }
 
 .required-aster-text {

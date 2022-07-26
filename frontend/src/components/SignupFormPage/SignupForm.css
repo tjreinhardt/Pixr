@@ -7,6 +7,7 @@ form {
   max-width: 200px;
   padding-left: 50%;
   padding-right: 50%;
+
 }
 
 input {
@@ -17,6 +18,7 @@ input {
 .signup-container-div {
   width: 100%;
   margin-top: 50px;
+  background-color: rgb(0, 0, 0, .90);
 }
 
 .footer-div {
@@ -66,4 +68,9 @@ input {
   margin: 0px;
   border-bottom: none;
   padding: 0px;
+}
+
+.signup-form {
+  background-color: rgb(0, 0, 0, .10);
+  height: 100vh;
 }

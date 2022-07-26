@@ -110,7 +110,7 @@ export default function MapGL() {
               Longitude: {popupInfo.lng}
               <br />
               Latitude: {popupInfo.lat}
-              <img width="100%" height="100%" src={popupInfo.imageUrl} alt="" />
+              <img className="map-image-popup" width="100%" height="100%" src={popupInfo.imageUrl} alt="" />
             </div>
           </Popup>
         )}

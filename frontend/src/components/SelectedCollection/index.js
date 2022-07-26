@@ -67,7 +67,7 @@ function SelectedCollection() {
   }
 
   return (
-    <div className="image-container-div" style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: "gray" }}>
+    <div className="image-container-div" style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: `rgb(0, 0, 0, .90)` }}>
       <div className="target-collections-container-div">
         <h2 className="image-container-div">{collection.title}</h2>
         <button className="nav-buttons" id="delete-collection-button" onClick={onDelete}>Delete This Collection</button>
