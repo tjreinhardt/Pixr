@@ -24,16 +24,17 @@
   width: 98%;
   opacity: 92%;
   zoom: 99%;
-  box-shadow: 0 0 5px 3px #000000, 0 0 0 #ffffff;
+  box-shadow: 0 0 3px 2px #000000, 0 0 0 #ffffff;
+
 }
 
 .browser-image:hover {
   min-width: 32.35vmin;
   background-position: left;
-  width: 99%;
+  width: 98%;
   min-height: 22vmin;
   z-index: 2;
-  margin-right: 25px;
+  /* margin-right: 25px; */
   opacity: 100%;
   box-shadow: 0 0 5px 5px #000000, 0 0 0 #ffffff;
 }
@@ -41,6 +42,10 @@
 .body-layout-div {
   background-color: white;
 }
+
+/* .nav-wrapper {
+  height: 300px;
+} */
 
 .image-feed-container-div {
 
@@ -54,6 +59,7 @@
   justify-content: center;
   align-items: center;
   height: 100%;
+  top: 50px;
   width: 100%;
   min-width: 200px;
   border-bottom: none;

@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
   }
 
   return (
-    <div className='nav-wrapper'>
+    <div className='nav-wrapper' style={{ position: "fixed" }}>
       <ul>
         <li>
           <NavLink className="sweetr-logo-nav" exact to="/" style={{ fontSize: "36px", position: "absolute", left: "0", marginLeft: "10px", height: "100%", textDecoration: "none", color: "white", display: "flex", alignSelf: "center", justifyContent: "flex-start" }}>Pixr</NavLink>

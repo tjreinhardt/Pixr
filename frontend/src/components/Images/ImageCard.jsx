@@ -1,8 +1,9 @@
+import './ImageCard.css'
 const ImageCard = ({ imageURL = '', classname = 'browser-image' }) => {
   return (
     <div
       className={classname}
-      style={{ backgroundImage: `url('${imageURL}')`, backgroundSize: 'cover' }}
+      style={{ boxSizing: "border-box", overflowX: "none", backgroundImage: `url('${imageURL}')`, backgroundSize: 'cover' }}
     ></div>
   )
 }

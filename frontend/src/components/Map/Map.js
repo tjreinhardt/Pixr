@@ -18,7 +18,7 @@ export default function Map() {
       style: 'mapbox://styles/mapbox/satellite-streets-v11',
       center: [lng, lat],
       zoom: 1.5,
-      projection: 'globe'
+      projection: 'globe',
     });
   });
 

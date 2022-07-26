@@ -37,8 +37,12 @@ export default function LandingPage() {
     items: images.map((i) => ({
       id: i.id,
       renderItem: (
-        <NavLink className="image-cards" style={{ margin: '0px', maxWidth: "100%", maxHeight: "100%" }} key={i.id} to={`/images/${i.id}`}>
-          <img style={{ margin: '0px', position: 'sticky', top: '0', minHeight: '100vh', minWidth: '100vw', width: '100%' }} className="image-card" src={i.imageUrl} />
+        <NavLink className="image-cards" style={{ margin: '0px', height: "100vw", maxWidth: "100vw", maxHeight: "100vh" }} key={i.id} to={`/images/${i.id}`}>
+          <div>
+            {i.title}
+          </div>
+          <img style={{ margin: '0px', position: 'sticky', top: '0', minHeight: '100vh', marginBottom: "58.95px", minWidth: '100vw', width: '100vw', height: "100vh", bottom: '60px' }} className="image-card" src={i.imageUrl}>
+          </img>
         </NavLink>
       ),
     })),
