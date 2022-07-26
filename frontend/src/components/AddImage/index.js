@@ -135,6 +135,8 @@ const AddImage = () => {
             )} */}
             <div>
               <br />
+              {!lat && <p style={{ color: "red" }}>Image cannot be added to map until you assign coordinates!</p>}
+              {lat && <p style={{ color: "green" }}>Image is ready to add to the map!</p>}
               <button className="nav-buttons" type="submit" style={{ marginTop: '15%', fontSize: '12px' }}>Add new Image</button>
             </div>
           </form>
