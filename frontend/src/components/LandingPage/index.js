@@ -41,7 +41,7 @@ export default function LandingPage() {
           <div>
             {i.title}
           </div>
-          <img style={{ margin: '0px', position: 'sticky', top: '0', minHeight: '100vh', marginBottom: "58.95px", minWidth: '100vw', width: '100vw', height: "100vh", bottom: '60px' }} className="image-card" src={i.imageUrl}>
+          <img style={{ opacity: "100%", margin: '0px', position: 'sticky', top: '0', minHeight: '100vh', marginBottom: "58.95px", minWidth: '100vw', width: '100vw', height: "100vh", bottom: '60px' }} className="image-card" src={i.imageUrl}>
           </img>
         </NavLink>
       ),
