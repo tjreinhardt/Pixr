@@ -100,17 +100,20 @@ export default function MapGL() {
             longitude={Number(popupInfo.lng)}
             latitude={Number(popupInfo.lat)}
             onClose={() => setPopupInfo(null)}
+            style={{ padding: '0px', margin: '0px' }}
           >
-            <div className="popup-info-container" style={{ position: 'relative', width: '200px' }}>
-              {popupInfo.imageTitle}
+            <div className="popup-info-container" style={{ position: 'relative', width: '13rem', height: '13rem', backgroundImage: `url(${popupInfo.imageUrl})`, backgroundSize: 'cover' }}>
+              <div style={{ position: 'absolute', bottom: '0', color: 'white', backgroundColor: 'black', width: '100%', margin: '10px 10px 15px', marginBottom: '0px' }}>
+                {popupInfo.imageTitle}
+              </div>
               <br />
-              {popupInfo.imageDescription}
+              {/* {popupInfo.imageDescription} */}
               <br />
               <br />
-              Longitude: {popupInfo.lng}
+              {/* Longitude: {popupInfo.lng} */}
               <br />
-              Latitude: {popupInfo.lat}
-              <img className="map-image-popup" width="100%" height="100%" src={popupInfo.imageUrl} alt="" />
+              {/* Latitude: {popupInfo.lat} */}
+              {/* <img className="map-image-popup" width="100%" height="100%" src={popupInfo.imageUrl} alt="" /> */}
             </div>
           </Popup>
         )}

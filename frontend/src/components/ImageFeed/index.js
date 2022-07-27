@@ -27,6 +27,7 @@ const ImageFeed = () => {
 
   if (!images.length) {
     return null;
+    // history.push('/upload')
   }
 
 

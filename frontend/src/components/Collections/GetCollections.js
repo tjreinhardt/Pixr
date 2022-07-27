@@ -20,9 +20,6 @@ function GetCollections() {
   return (
     <div className='collections-page-wrapper'>
       <div className='collections-container-div'>
-        <div className='create-collection-div-spacer'>
-          <NavLink className="create-collection-styling" to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
-        </div>
         {array.map((collection) => {
           return (
             <div className="collection-links" key={collection.id}>
@@ -35,6 +32,9 @@ function GetCollections() {
             </div >)
         })
         }
+        <div className='create-collection-div-spacer'>
+          <NavLink className="create-collection-styling" to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
+        </div>
       </div>
     </div>
 
