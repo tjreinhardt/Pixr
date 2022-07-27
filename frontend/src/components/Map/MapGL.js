@@ -18,6 +18,18 @@ export default function MapGL() {
   const [newLocation, setNewLocation] = useState(null);
   const images = useSelector(state => { return Object.values(state.images) });
 
+  const onMapLoad = React.useCallback(() => {
+    mapRef.current.on('style.load', () => {
+      mapRef.current.setFog({
+        "range": [0.8, 8],
+        "color": "#dc9f9f",
+        "horizon-blend": 0.5,
+        "high-color": "#245bde",
+        "space-color": "#000000",
+        "star-intensity": 0.15
+      })
+    })
+  }, [])
 
 
   const pins = useMemo(
@@ -75,12 +87,14 @@ export default function MapGL() {
     <>
       <Map
         ref={mapRef}
+        onLoad={onMapLoad}
         initialViewState={{
           latitude: 40,
           longitude: -100,
           zoom: 3
         }}
-        style={{ position: "fixed", height: '90.8%', width: '100%', marginTop: "50px" }}
+        style={{ position: "fixed", height: '90.8%', width: '100%', marginTop: "50px", backgroundColor: 'rgba(10, 10, 15, 0.927)' }}
+
         mapStyle="mapbox://styles/mapbox/satellite-streets-v11"
         projection="globe"
         mapboxAccessToken={MAPBOX_TOKEN}

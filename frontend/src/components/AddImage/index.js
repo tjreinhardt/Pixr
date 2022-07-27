@@ -72,9 +72,9 @@ const AddImage = () => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
-    if (lat) errors.push('Enable location service button to add an image')
+    // if (lat) errors.push('Enable location service button to add an image')
     setErrors(errors)
-  }, [imageTitle, imageUrl, imageDescription, lat])
+  }, [imageTitle, imageUrl, imageDescription])
 
   return (
     <>

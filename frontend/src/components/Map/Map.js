@@ -20,6 +20,12 @@ export default function Map() {
       zoom: 1.5,
       projection: 'globe',
     });
+
+    map.on('load', () => {
+      // Set the default atmosphere style
+      map.setFog({});
+    });
+
   });
 
   useEffect(() => {

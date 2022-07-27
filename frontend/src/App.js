@@ -50,7 +50,7 @@ function App() {
           <Route path="/upload">
             <AddImage />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <LoginFormPage />
           </Route>
           <Route path="/map">
