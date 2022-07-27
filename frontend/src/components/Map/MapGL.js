@@ -102,7 +102,7 @@ export default function MapGL() {
             onClose={() => setPopupInfo(null)}
             style={{ padding: '0px', margin: '0px' }}
           >
-            <div className="popup-info-container" style={{ position: 'relative', width: '13rem', height: '13rem', backgroundImage: `url(${popupInfo.imageUrl})`, backgroundSize: 'cover' }}>
+            <div className="popup-info-container" style={{ position: 'relative', width: '13rem', height: '13rem', backgroundImage: `url(${popupInfo.imageUrl})`, backgroundPosition: 'center', backgroundSize: 'cover' }}>
               <div style={{ position: 'absolute', bottom: '0', color: 'white', backgroundColor: 'black', width: '100%', margin: '10px 10px 15px', marginBottom: '0px' }}>
                 {popupInfo.imageTitle}
               </div>
