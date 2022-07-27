@@ -22,7 +22,7 @@ const EditImageForm = ({ image, hideForm }) => {
     })
   })
 
-  const [collectionId, setCollectionId] = useState(image.collectionId)
+  const [collectionId, setCollectionId] = useState('')
   const [title, setTitle] = useState(collection.title)
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
@@ -38,6 +38,7 @@ const EditImageForm = ({ image, hideForm }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    window.alert('By hitting ok, you understand that this image and image properties will be permanently modified')
     history.push(`/images/${id}`)
 
     const payload = {
@@ -129,7 +130,8 @@ const EditImageForm = ({ image, hideForm }) => {
             <select
               value={collectionId}
               onChange={updateCollectionId}
-            >
+              placeholder="No Collection"
+            ><option>None</option>
               {collections.map(collection => {
                 return <option key={collection.id} label={collection.title}>{collection.id}</option>
               })}

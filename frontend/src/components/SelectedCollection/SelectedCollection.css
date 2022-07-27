@@ -6,7 +6,8 @@
 }
 
 .target-collections-container-div {
-  margin-left: 29%;
+  /* margin-left: 29%; */
+  margin-top: 50px;
 }
 
 #delete-collection-button {

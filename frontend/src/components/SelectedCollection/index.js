@@ -56,9 +56,9 @@ function SelectedCollection() {
   //     </>
   //   )
   // }
-  // if (images.length) {
-  //   return null;
-  // }
+  if (!images.length) {
+    return null;
+  }
 
 
   const onDelete = () => {
@@ -68,14 +68,16 @@ function SelectedCollection() {
 
   return (
     <div className="image-container-div" style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: `rgb(0, 0, 0, .90)` }}>
-      <div className="target-collections-container-div">
-        <h2 className="image-container-div">{collection.title}</h2>
-        <button className="nav-buttons" id="delete-collection-button" onClick={onDelete}>Delete This Collection</button>
+      <div style={{ marginBottom: '50px' }} className="target-collections-container-div">
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          <h2 style={{ color: 'white', fontSize: '40px', margin: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="image-container-div">{collection.title}</h2>
+          <button className="nav-buttons" id="delete-collection-button" onClick={onDelete}>Delete This Collection</button>
+        </div>
         <div >
           {images?.map(image => {
             return (
               <Link key={image?.id} to={`/images/${image?.id}`}>
-                <img src={image?.imageUrl} alt=""></img>
+                <img style={{ marginTop: '5px', marginBottom: '5px' }} src={image?.imageUrl} alt=""></img>
               </Link>
             )
           })}
