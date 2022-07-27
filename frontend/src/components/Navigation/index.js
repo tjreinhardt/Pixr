@@ -20,7 +20,7 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <>
-        <NavLink className="nav-buttons" exact to="/">Home</NavLink>
+        <NavLink className="nav-buttons" to="/">Home</NavLink>
         <LoginFormModal />
         <NavLink className="nav-buttons" to="/signup">Signup</NavLink>
       </>

@@ -148,7 +148,7 @@ export default function LandingPage() {
       renderItem: (
         <div>
 
-          <NavLink className="image-cards" style={{ margin: '0px', height: "100vw", maxWidth: "100vw", maxHeight: "100vh" }} key={i.id} to={`/images/${i.id}`}>
+          <div className="image-cards" style={{ margin: '0px', height: "100vw", maxWidth: "100vw", maxHeight: "100vh" }} key={i.id} to={`/images/${i.id}`}>
             <div>
               {i.title}
             </div>
@@ -157,7 +157,7 @@ export default function LandingPage() {
               <img style={{ opacity: "100%", margin: '0px', position: 'sticky', top: '0', minHeight: '100vh', minWidth: '100vw', width: '100vw', height: "100vh", bottom: '60px' }} className="image-card" src={i.imageUrl}>
               </img>
             </div>
-          </NavLink>
+          </div>
         </div>
       ),
     })),

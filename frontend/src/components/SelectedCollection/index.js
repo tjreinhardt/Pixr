@@ -70,7 +70,7 @@ function SelectedCollection() {
     <div className="image-container-div" style={{ height: "100vh", width: "100vw", position: "absolute", backgroundColor: `rgb(0, 0, 0, .90)` }}>
       <div style={{ marginBottom: '50px' }} className="target-collections-container-div">
         <div style={{ display: 'flex', flexDirection: 'row' }}>
-          <h2 style={{ color: 'white', fontSize: '40px', margin: '20px', display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="image-container-div">{collection.title}</h2>
+          <h2 style={{ color: 'white', fontSize: '40px', margin: '20px', marginLeft: "8%", display: 'flex', justifyContent: 'center', alignItems: 'center' }} className="image-container-div">{collection.title}</h2>
           <button className="nav-buttons" id="delete-collection-button" onClick={onDelete}>Delete This Collection</button>
         </div>
         <div >
