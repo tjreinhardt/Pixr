@@ -35,7 +35,7 @@ function LoginForm() {
       <form className="login-form-box" onSubmit={handleSubmit}>
         <ul>
           {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
+            <li style={{ width: '200px' }} key={idx}>{error}</li>
           ))}
         </ul>
         <label>
@@ -58,7 +58,7 @@ function LoginForm() {
             required
           />
         </label>
-        <div className="required-aster-text">Fields marked with * are required</div>
+        {/* <div style={{ color: 'white', fontSize: '12px', marginTop: '12px', backgroundColor: 'red' }} className="required-aster-text">Fields marked with * are required</div> */}
         <button style={{ fontSize: '10px', margin: '15px' }} className="nav-buttons" type="submit">Login</button>
       </form>
       <div className="demo-button-div">

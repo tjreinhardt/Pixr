@@ -20,7 +20,7 @@ function GetCollections() {
   return (
     <div className='collections-page-wrapper'>
       <div className='collections-container-div'>
-        <h4 style={{ width: '250px', padding: '0px', marginTop: '0px', color: 'white', textAlign: 'center' }}>Here you can create collections to organize your uploads!</h4>
+        <h4 style={{ width: '500px', padding: '0px', marginTop: '0px', color: 'white', textAlign: 'center' }}>Organize your uploads here!</h4>
         <br />
         {array.map((collection) => {
           return (

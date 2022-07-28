@@ -92,7 +92,7 @@ const AddImage = () => {
           <form onSubmit={handleSubmit} className='add-image-form'>
             <h4> Add Image </h4>
             {errors.map((err) => (
-              <li key={err}>{err}</li>
+              <li style={{ backgroundColor: "red" }} key={err}>{err}</li>
             ))}
             <br />
             <br />

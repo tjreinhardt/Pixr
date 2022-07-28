@@ -34,8 +34,8 @@ function CollectionForm() {
     <div className='form-container'>
       <div>
         <form className="create-collection-form" onSubmit={handleSubmit}>
-          <h4 className='create-collection-title'>Create Collection</h4>
-          <ul>
+          <h4 style={{ width: '300px', marginBottom: '15px' }} className='create-collection-title'>Create Collection</h4>
+          <ul style={{ paddingInlineStart: '0px', margin: '10px' }}>
             {validationErrors.map((error, idx) => (
               <div key={idx} className='error-message-div'>
                 <li key={error}>{error}</li>

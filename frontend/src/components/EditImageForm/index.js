@@ -90,7 +90,7 @@ const EditImageForm = ({ image, hideForm }) => {
               <h4 style={{ fontSize: '30px' }} className='update-image-title'> Update image </h4>
             </div>
             {errors.map((error, idx) => (
-              <li className="update-form-li" key={idx}>{error}</li>
+              <li style={{ backgroundColor: 'red', width: 'max-content' }} className="update-form-li" key={idx}>{error}</li>
             ))}
             <label htmlFor="title">Title</label>
             <input
