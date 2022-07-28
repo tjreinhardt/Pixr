@@ -13,6 +13,7 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    history.push('/images')
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
