@@ -1,8 +1,19 @@
 form {
   position: relative;
-  box-shadow: 0 0 5px 1px #000000, 0 0 0 #ffffff;
+  box-shadow: 0 0 20px 1px #ffffff, 0 0 0 #000000;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.396);
+  color: white;
+  text-align: left;
+}
+
+input {
+  border-color: white;
+  color: rgb(255, 255, 255);
+  /* box-shadow: 0 0 0px 1px #ffffff, 0 0 0 #000000; */
+  padding: 10px;
+  background-color: rgb(32, 32, 32);
+
 }
 
 .edit-image-form-container {
@@ -30,9 +41,24 @@ form {
   font-size: 24px;
 }
 
+label {
+  font-size: 24px;
+}
+
+select {
+  background-color: rgb(32, 32, 32);
+  color: white;
+  padding: 0.5rem;
+  width: 250px;
+}
+
+option {
+  padding: 45px;
+}
+
 .update-form-li {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   margin-bottom: 5px;
   width: 200px;
 }

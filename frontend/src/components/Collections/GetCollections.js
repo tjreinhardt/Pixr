@@ -33,7 +33,7 @@ function GetCollections() {
         })
         }
         <div className='create-collection-div-spacer'>
-          <NavLink className="create-collection-styling" to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
+          <NavLink style={{ fontSize: '16px' }} className="nav-buttons" to={`/newCollection/${sessionUser.id}`}>Create Collection</NavLink>
         </div>
       </div>
     </div>

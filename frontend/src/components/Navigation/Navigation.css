@@ -7,6 +7,7 @@
   align-items: center;
   top: 0;
   z-index: 100;
+  /* border-bottom: 1px solid black; */
   height: 50px;
   width: 100vw;
   /* background-color: rgba(0, 0, 0, .25); */
@@ -45,4 +46,42 @@
 li.username-dropdown {
   padding: 0px;
   margin: 0px;
+}
+
+.nav-buttons {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  /* border: 2px solid #000000; */
+  text-decoration: none;
+  border-radius: 0.6em;
+  color: rgb(255, 255, 255);
+  text-decoration-line: none;
+  transition: all 150ms ease-in-out;
+  /* box-shadow: 0 0 1px 1px white, 0 0 0 0 #000000; */
+  background-color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  width: fit-content;
+  font-size: 0.7rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-right: 10px;
+  margin: .5rem;
+  padding: 0.8em 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  box-shadow: 0 0 3px 1px #ffffff, 0 0 0 0 #000000;
+}
+
+
+.nav-buttons:hover {
+  /* font-size: 0.6rem; */
+  box-shadow: 0 0 5px 1px #000000, 0 0 0 0 #000000;
+  /* padding: 1.2em 2.8em; */
+  /* box-shadow: none; */
+  color: #000000;
+  background-color: rgb(255, 255, 255);
 }

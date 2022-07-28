@@ -5,16 +5,16 @@
   justify-content: center;
   border: 1px solid black;
   border-radius: 5px;
-  height: 50%;
-  overflow-y: scroll;
+  /* height: 50%; */
+  overflow-y: auto;
   /* height: 50%; */
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 5%;
   margin-bottom: 5%;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   padding: 10%;
-  box-shadow: 0 0 5px 1px #000000, 0 0 0 #ffffff;
+  box-shadow: 0 0 15px 3px #ffffff, 0 0 0 #000000;
 
 }
 
@@ -46,7 +46,15 @@
   font-size: 40px;
   padding-right: 25px;
   text-decoration: none;
-  color: black;
+  margin-bottom: 5%;
+  color: white;
+  transition: all 150ms ease-in-out;
+  /* color: black; */
+}
+
+.collection-button-links:hover {
+  color: #ff0000;
+  text-shadow: #ffffff;
 }
 
 .delete-button {
@@ -56,18 +64,19 @@
   border: 2px solid #ff0000;
   border-radius: 0.6em;
   transition: all 150ms ease-in-out;
-  color: #ff0000;
-  background-color: #ffffff;
+  color: #ffffff;
+  background-color: #ff0000;
   cursor: pointer;
   display: flex;
   align-self: center;
   width: fit-content;
-  font-size: 0.4rem;
+  font-size: 0.8rem;
   font-weight: 400;
   line-height: 1;
   margin-right: 10px;
+
   margin: 5px;
-  padding: 1.2em 2.8em;
+  padding: .8em 2.8em;
   text-decoration: none;
   text-align: center;
   text-transform: uppercase;
@@ -75,11 +84,16 @@
   box-shadow: 0 0 5px 1px #ff0000, 0 0 0 #ffffff;
 }
 
+#delete-collection-button {
+  position: absolute;
+  right: 5%;
+}
+
 .delete-button:hover {
-  font-size: 0.5rem;
-  padding: 1.2em 2.8em;
-  color: #ffffff;
-  background-color: rgb(255, 0, 0);
+  /* font-size: 0.5rem; */
+  padding: .8em 2.8em;
+  color: #ff0000;
+  background-color: rgb(255, 255, 255);
 }
 
 .create-collection-link {

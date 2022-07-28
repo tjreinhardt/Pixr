@@ -63,9 +63,9 @@ const EditImageForm = ({ image, hideForm }) => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
-    if (!collectionId) errors.push("need an id TEST collections")
+    // if (!collectionId) errors.push("need an id TEST collections")
     setErrors(errors)
-  }, [imageTitle, imageUrl, imageDescription, collectionId])
+  }, [imageTitle, imageUrl, imageDescription])
 
 
   const onDelete = async (e) => {
@@ -87,7 +87,7 @@ const EditImageForm = ({ image, hideForm }) => {
         {userId && (
           <form onSubmit={onSubmit} className='update-image-form'>
             <div className='update-image-title-div'>
-              <h4 className='update-image-title'> Update image </h4>
+              <h4 style={{ fontSize: '30px' }} className='update-image-title'> Update image </h4>
             </div>
             {errors.map((error, idx) => (
               <li className="update-form-li" key={idx}>{error}</li>
@@ -126,7 +126,7 @@ const EditImageForm = ({ image, hideForm }) => {
               value={collectionId}
               onChange={updateCollectionId}
             /> */}
-            <label>Move to Collection</label>
+            <label style={{ width: '250px' }}>Move to:</label>
             <select
               value={collectionId}
               onChange={updateCollectionId}
@@ -138,8 +138,8 @@ const EditImageForm = ({ image, hideForm }) => {
             </select>
             <br />
             <div className='edit-image-buttons-container'>
-              <button className="nav-buttons" type="submit">Update</button>
-              <button className="nav-buttons" onClick={onDelete}>Delete</button>
+              <button style={{ fontSize: '10px' }} className="nav-buttons" type="submit">Update</button>
+              <button style={{ fontSize: '10px' }} className="nav-buttons" onClick={onDelete}>Delete</button>
             </div>
           </form>)
         }

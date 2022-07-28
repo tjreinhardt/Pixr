@@ -83,7 +83,7 @@ const AddImage = () => {
           If you would like to add your image to the map with your current location, hit the button below before uploading!
           <br />
           <br />
-          <button className='nav-buttons' onClick={getLocation}>Get Location</button>
+          <button style={{ fontSize: '12px' }} className='nav-buttons' onClick={getLocation}>Get Location</button>
           <p>{status}</p>
           {lat && <p>Latitude: {lat}</p>}
           {lng && <p>Longitude: {lng}</p>}
@@ -94,6 +94,8 @@ const AddImage = () => {
             {errors.map((err) => (
               <li key={err}>{err}</li>
             ))}
+            <br />
+            <br />
             <input
               type="text"
               placeholder='Title'
@@ -127,6 +129,7 @@ const AddImage = () => {
               onChange={updateLat}
               required
             />
+
             {/* {lat && (
               <h3 style={{ color: 'green' }}>Image will be added to the map upon uploading!</h3>
             )}
@@ -137,7 +140,7 @@ const AddImage = () => {
               <br />
               {!lat && <p style={{ color: "red" }}>Image cannot be added to map until you assign coordinates!</p>}
               {lat && <p style={{ color: "green" }}>Image is ready to add to the map!</p>}
-              <button className="nav-buttons" type="submit" style={{ marginTop: '15%', fontSize: '12px' }}>Add new Image</button>
+              <button className="nav-buttons" type="submit" style={{ marginTop: '15%', fontSize: '16px' }}>Add new Image</button>
             </div>
           </form>
         )}

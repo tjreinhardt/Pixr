@@ -84,10 +84,10 @@ function SignupFormPage() {
           />
         </label>
         <div className="required-aster-text">Fields marked with * are required</div>
-        <button className="signup-form-buttons" type="submit">Sign Up</button>
+        <button style={{ marginBottom: '15px' }} className="nav-buttons" type="submit">Sign Up</button>
       </form>
       <div className="demo-signup-div">
-        <button className='nav-buttons' onClick={() => handleDemo()}>Demo User</button>
+        <button style={{ marginTop: '5px' }} className='nav-buttons' onClick={() => handleDemo()}>Demo User</button>
       </div>
     </div>
   );

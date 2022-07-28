@@ -42,14 +42,16 @@
   display: flex;
   flex-wrap: wrap;
   border: 1px solid black;
+  color: white;
   /* margin-right: 30%; */
   /* margin-top: 2%; */
   margin-bottom: 2%;
   /* margin-left: 30%; */
-  background-color: white;
-  border-radius: 5px;
+  background-color: rgb(0, 0, 0);
+  /* border-bottom-left-radius: 1rem; */
+  /* border-bottom-right-radius: 1rem; */
   padding: 10px;
-  box-shadow: 0 0 5px 2px #000000, 0 0 0 #ffffff;
+  box-shadow: 0 0 20px 2px #ffffff, 0 0 0 #000000;
 }
 
 .target-image-title {

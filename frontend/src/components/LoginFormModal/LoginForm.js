@@ -58,10 +58,10 @@ function LoginForm() {
           />
         </label>
         <div className="required-aster-text">Fields marked with * are required</div>
-        <button className="nav-buttons" type="submit">Login</button>
+        <button style={{ fontSize: '10px', margin: '15px' }} className="nav-buttons" type="submit">Login</button>
       </form>
       <div className="demo-button-div">
-        <button className='nav-buttons' onClick={() => handleDemo()}>Demo Login</button>
+        <button style={{ fontSize: '10px' }} className='nav-buttons' onClick={() => handleDemo()}>Demo Login</button>
       </div>
     </div>
   );
