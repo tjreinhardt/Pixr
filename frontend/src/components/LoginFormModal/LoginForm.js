@@ -13,8 +13,8 @@ function LoginForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push('/images')
     setErrors([]);
+    history.push('/')
     return dispatch(sessionActions.login({ credential, password })).catch(
       async (res) => {
         const data = await res.json();
@@ -33,9 +33,9 @@ function LoginForm() {
   return (
     <div>
       <form className="login-form-box" onSubmit={handleSubmit}>
-        <ul>
+        <ul style={{ padding: '0px' }}>
           {errors.map((error, idx) => (
-            <li style={{ width: '200px' }} key={idx}>{error}</li>
+            <li style={{ width: '250px', backgroundColor: 'red' }} key={idx}>{error}</li>
           ))}
         </ul>
         <label>
