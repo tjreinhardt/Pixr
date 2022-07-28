@@ -19,7 +19,7 @@ function SelectedCollection() {
   // const collections = useSelector(state => image && state.collections[image.collectionId])
   const allImages = useSelector(state => { return Object.values(state.images) });
   const images = allImages.filter(image => image.collectionId === Number(id))
-  console.log(images, '----------- images --------------')
+  // console.log(images, '----------- images --------------')
   const collection = useSelector(state => state.collections[id]);
 
 
@@ -56,10 +56,22 @@ function SelectedCollection() {
   //     </>
   //   )
   // }
-  if (!images.length) {
+  // if (!sessionUser) {
+  //   return (
+  //     <div>Oops! This Collection Does Not Currently Contain Any Of Your Images!</div>
+  //   );
+  // }
+
+  if (!collection) {
     return null;
   }
 
+  console.log(collection, 'collection')
+  if (images === []) {
+    return (
+      <div>hiasdasdasdsd</div>
+    );
+  }
 
   const onDelete = () => {
     dispatch(deleteCollection(collection))
