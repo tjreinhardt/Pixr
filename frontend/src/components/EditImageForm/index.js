@@ -131,7 +131,7 @@ const EditImageForm = ({ image, hideForm }) => {
               value={collectionId}
               onChange={updateCollectionId}
               placeholder="No Collection"
-            ><option>None</option>
+            ><option>--Select a Collection--</option>
               {collections.map(collection => {
                 return <option key={collection.id} label={collection.title}>{collection.id}</option>
               })}
