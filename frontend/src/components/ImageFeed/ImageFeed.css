@@ -33,7 +33,7 @@
 
 .browser-image:hover {
   min-width: 32.35vmin;
-  background-position: left;
+  /* background-position: left; */
   width: 98%;
   min-height: 22vmin;
   z-index: 2;
