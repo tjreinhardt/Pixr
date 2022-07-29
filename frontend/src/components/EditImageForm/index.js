@@ -22,7 +22,7 @@ const EditImageForm = ({ image, hideForm }) => {
     })
   })
 
-  const [collectionId, setCollectionId] = useState('')
+  const [collectionId, setCollectionId] = useState(null)
   const [title, setTitle] = useState(collection.title)
   const [imageTitle, setImageTitle] = useState(image.imageTitle);
   const [imageUrl, setImageUrl] = useState(image.imageUrl);
@@ -131,7 +131,7 @@ const EditImageForm = ({ image, hideForm }) => {
               value={collectionId}
               onChange={updateCollectionId}
               placeholder="No Collection"
-            ><option>--Select a Collection--</option>
+            ><option>--  No Collection Selected --</option>
               {collections.map(collection => {
                 return <option key={collection.id} label={collection.title}>{collection.id}</option>
               })}
