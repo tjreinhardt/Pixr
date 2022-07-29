@@ -54,7 +54,7 @@ const AddImage = () => {
     } else {
       setStatus('Locating...');
       navigator.geolocation.getCurrentPosition((position) => {
-        setStatus('Your current location:');
+        setStatus('Current Location Added');
         setLat(position.coords.latitude);
         setLng(position.coords.longitude);
       }, () => {
@@ -84,9 +84,9 @@ const AddImage = () => {
           <br />
           <br />
           <button style={{ fontSize: '12px' }} className='nav-buttons' onClick={getLocation}>Get Location</button>
-          <p>{status}</p>
-          {lat && <p>Latitude: {lat}</p>}
-          {lng && <p>Longitude: {lng}</p>}
+          <p style={{ color: 'green' }}>{status}</p>
+          {/* {lat && <p>Latitude: {lat}</p>} */}
+          {/* {lng && <p>Longitude: {lng}</p>} */}
         </div>
         {userId && (
           <form onSubmit={handleSubmit} className='add-image-form'>
@@ -139,7 +139,7 @@ const AddImage = () => {
             <div>
               <br />
               {!lat && <p style={{ color: "red" }}>Image cannot be added to map until you assign coordinates!</p>}
-              {lat && <p style={{ color: "green" }}>Image is ready to add to the map!</p>}
+              {lat && imageTitle && imageUrl && imageDescription && < p style={{ color: "green" }}>Image is ready to add to the map!</p>}
               <button className="nav-buttons" type="submit" style={{ marginTop: '15%', fontSize: '16px' }}>Add new Image</button>
             </div>
           </form>
