@@ -127,7 +127,7 @@ const AddImage = () => {
               placeholder="Latitude"
               value={lat}
               onChange={updateLat}
-              required
+            // required
             />
 
             {/* {lat && (
