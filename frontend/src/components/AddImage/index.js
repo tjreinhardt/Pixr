@@ -63,6 +63,11 @@ const AddImage = () => {
     }
   }
 
+  const getDemoLocation = () => {
+    setStatus('Random Demo Location Added')
+    setLat(Math.random() * (89 - 1) + 1)
+    setLng(Math.random() * (89 - 1) + 1)
+  }
 
   useEffect(() => {
     let errors = [];
@@ -79,11 +84,13 @@ const AddImage = () => {
   return (
     <>
       <div className='form-container'>
-        <div className="get-location-container">
-          If you would like to add your image to the map, hit the button below before uploading!
+        <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column' }} className="get-location-container">
+          If you would like to add your image to the map with current location, hit the 'Get Location' button below before uploading. Otherwise use a random demo location!
           <br />
           <br />
           <button style={{ fontSize: '12px' }} className='nav-buttons' onClick={getLocation}>Get Location</button>
+          <br />
+          <button className="nav-buttons" onClick={getDemoLocation}>Random Demo Location</button>
           <p style={{ color: 'green' }}>{status}</p>
           {/* {lat && <p>Latitude: {lat}</p>} */}
           {/* {lng && <p>Longitude: {lng}</p>} */}
