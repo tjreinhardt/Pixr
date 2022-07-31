@@ -27,7 +27,7 @@ input {
 .edit-image-buttons-container {
   display: flex;
   flex-direction: row;
-  padding-bottom: 25px;
+  /* padding-bottom: 25px; */
 }
 
 .update-image-title-div {

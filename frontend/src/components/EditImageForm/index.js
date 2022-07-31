@@ -87,7 +87,7 @@ const EditImageForm = ({ image, hideForm }) => {
     <>
       <div className='edit-image-form-container'>
         {userId && (
-          <form onSubmit={onSubmit} className='update-image-form'>
+          <form onSubmit={onSubmit} className='update-image-form' style={{ paddingBottom: '10px' }}>
             <div className='update-image-title-div'>
               <h4 style={{ fontSize: '30px' }} className='update-image-title'> Update image </h4>
             </div>
@@ -143,7 +143,7 @@ const EditImageForm = ({ image, hideForm }) => {
               <button style={{ fontSize: '10px' }} className="nav-buttons" type="submit">Update</button>
               <button style={{ fontSize: '10px' }} className="nav-buttons" onClick={onDelete}>Delete</button>
             </div>
-            <label style={{ textAlign: 'center', fontSize: '24px' }}>Your Collections</label>
+            <label style={{ textAlign: 'center', fontSize: '24px', width: '250px', marginTop: '10px', marginBottom: '10px' }}>Your Collections</label>
             {collections.map(collection => {
               return <div style={{ marginBottom: '0px' }}>
                 <NavLink className='nav-buttons' key={collection.id} to={`/collections/${collection.id}`}>{collection.title}</NavLink>
