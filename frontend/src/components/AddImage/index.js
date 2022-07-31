@@ -85,7 +85,7 @@ const AddImage = () => {
     <>
       <div className='form-container'>
         <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column' }} className="get-location-container">
-          If you would like to add your image to the map with current location, hit the 'Get Location' button below before uploading. Otherwise use a random demo location!
+          To add your image to the map with current location, hit the 'Get Location' button below. Otherwise you may use a random demo location!
           <br />
           <br />
           <button style={{ fontSize: '12px' }} className='nav-buttons' onClick={getLocation}>Get Location</button>
