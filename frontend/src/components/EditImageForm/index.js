@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { modifyImage } from '../../store/images';
 import './EditImage.css';
 import { getUserCollections } from '../../store/collections';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -81,6 +82,7 @@ const EditImageForm = ({ image, hideForm }) => {
 
 
 
+
   return (
     <>
       <div className='edit-image-form-container'>
@@ -131,7 +133,7 @@ const EditImageForm = ({ image, hideForm }) => {
               value={collectionId}
               onChange={updateCollectionId}
               placeholder="No Collection"
-            ><option>--  No Collection Selected --</option>
+            ><option>--  Not Assigned --</option>
               {collections.map(collection => {
                 return <option key={collection.id} label={collection.title}>{collection.id}</option>
               })}
@@ -141,8 +143,16 @@ const EditImageForm = ({ image, hideForm }) => {
               <button style={{ fontSize: '10px' }} className="nav-buttons" type="submit">Update</button>
               <button style={{ fontSize: '10px' }} className="nav-buttons" onClick={onDelete}>Delete</button>
             </div>
+            <label style={{ textAlign: 'center', fontSize: '24px' }}>Your Collections</label>
+            {collections.map(collection => {
+              return <div style={{ marginBottom: '0px' }}>
+                <NavLink className='nav-buttons' key={collection.id} to={`/collections/${collection.id}`}>{collection.title}</NavLink>
+              </div>
+            })}
           </form>)
         }
+        <div>
+        </div>
       </div>
     </>
   )

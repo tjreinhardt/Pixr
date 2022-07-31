@@ -28,11 +28,11 @@ const AddImage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // if (!lng) window.alert('Image will not be uploaded to the map!')
-    setImageTitle('');
-    setImageUrl('')
-    setImageDescription('')
-    setLng('');
-    setLat('')
+    // setImageTitle('');
+    // setImageUrl('')
+    // setImageDescription('')
+    // setLng('');
+    // setLat('');
 
 
     const payload = {
@@ -72,15 +72,15 @@ const AddImage = () => {
     if (imageTitle.length > 40) errors.push("Title is too long")
     if (imageUrl.length > 250) errors.push("Url Length exceeds max limit")
     if (imageDescription.length > 250) errors.push("Description exceeds max length")
-    // if (lat) errors.push('Enable location service button to add an image')
+    if (!lat) errors.push('Please assign your image a location!')
     setErrors(errors)
-  }, [imageTitle, imageUrl, imageDescription])
+  }, [imageTitle, imageUrl, imageDescription, lat])
 
   return (
     <>
       <div className='form-container'>
         <div className="get-location-container">
-          If you would like to add your image to the map with your current location, hit the button below before uploading!
+          If you would like to add your image to the map, hit the button below before uploading!
           <br />
           <br />
           <button style={{ fontSize: '12px' }} className='nav-buttons' onClick={getLocation}>Get Location</button>
@@ -90,7 +90,7 @@ const AddImage = () => {
         </div>
         {userId && (
           <form onSubmit={handleSubmit} className='add-image-form'>
-            <h4> Add Image </h4>
+            <h4 style={{ width: '400px' }}> Add Image To Map</h4>
             {errors.map((err) => (
               <li style={{ backgroundColor: "red" }} key={err}>{err}</li>
             ))}
@@ -116,14 +116,14 @@ const AddImage = () => {
               onChange={updateImageDescription}
               required />
             <input
-              type="number"
+              type="hidden"
               placeholder="Longitude"
               value={lng}
               onChange={updateLng}
               required
             />
             <input
-              type="number"
+              type="hidden"
               placeholder="Latitude"
               value={lat}
               onChange={updateLat}

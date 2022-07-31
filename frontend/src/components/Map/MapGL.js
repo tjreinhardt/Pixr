@@ -40,6 +40,7 @@ export default function MapGL() {
           longitude={image.lng}
           latitude={image.lat}
           anchor="bottom"
+
           onClick={e => {
             e.originalEvent.stopPropagation();
             setPopupInfo({ ...image })
@@ -72,6 +73,7 @@ export default function MapGL() {
       })
     }
   }
+
 
 
   React.useEffect(() => {
