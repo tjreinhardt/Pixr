@@ -1,9 +1,9 @@
 # Welcome to Pixr!
 
-Thanks for using Pixr app! Here you can share images of your favorite images with the rest of the world! Feel free to browse and explore all the cool images that humanity has to offer!!
+Thanks for using Pixr app! Here you can share images of your favorite images with the rest of the world. Feel free to browse and explore all the cool images that humanity has to offer! Explore images by themselves in the browse section, or search the globe in the map section!
 
 
-Live-link to Pixr here: https://pixr.herokuapp.com/signup
+Live-link to Pixr here: https://pixr.herokuapp.com/
 
 ## Pixr User Guide
 
@@ -38,6 +38,8 @@ While logged in, a user can browse all images posted on the app, as well as view
 - CSS
 - React-Map-GL
 - React-Mapbox-GL
+- React-Spring
+- React-Spring-Carousel
 - Turf
 
 ## Features of Pixr
@@ -45,8 +47,9 @@ While logged in, a user can browse all images posted on the app, as well as view
 - Sign-Up/Log-In with user creditionals
 - Demo User
 - Create, Read, Update, and Destroy Images with geolocation and error handling
-- Create, Read and Destroy Collections with error gandling
-- Interactive Map Tool that users may view/update
+- Create, Read and Destroy Collections with error gandling, categorize and sort your uploads into custom collections
+- Interactive Map Tool that users may view/update by uploading images from their current location.
+DISCLAIMER: None of your information is publicy available to other users, all they see is an image on a map upon uploading. None of your data is exposed here and your uploads are 100% anonymous to other users. No user location information used by admins, your data is 100% yours.
 
 ## Future Goals For This App
 
