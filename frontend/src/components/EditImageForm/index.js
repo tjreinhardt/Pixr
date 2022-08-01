@@ -140,10 +140,10 @@ const EditImageForm = ({ image, hideForm }) => {
             </select>
             <br />
             <div className='edit-image-buttons-container'>
-              <button style={{ fontSize: '10px' }} className="nav-buttons" type="submit">Update</button>
-              <button style={{ fontSize: '10px' }} className="nav-buttons" onClick={onDelete}>Delete</button>
+              <button style={{ fontSize: '14px' }} className="nav-buttons" type="submit">Update</button>
+              <button style={{ fontSize: '14px' }} className="nav-buttons" onClick={onDelete}>Delete</button>
             </div>
-            <label style={{ textAlign: 'center', fontSize: '24px', width: '250px', marginTop: '10px', marginBottom: '10px' }}>Your Collections</label>
+            <label style={{ textAlign: 'center', fontSize: '24px', width: '250px', marginTop: '40px', marginBottom: '10px' }}>View Collection:</label>
             {collections.map(collection => {
               return <div style={{ marginBottom: '0px' }}>
                 <NavLink className='nav-buttons' key={collection.id} to={`/collections/${collection.id}`}>{collection.title}</NavLink>
