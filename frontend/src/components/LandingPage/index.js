@@ -139,11 +139,12 @@ export default function LandingPage() {
   const dispatch = useDispatch();
   const {
     carouselFragment,
-    // slideToPrevItem,
+    slideToPrevItem,
     slideToNextItem
   } = useSpringCarousel({
     withLoop: true,
     items: images.map((i) => ({
+      draggingSlideTreshold: 11,
       id: i.id,
       renderItem: (
         <div>
