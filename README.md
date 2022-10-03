@@ -3,7 +3,7 @@
 Thanks for using Pixr app! Here you can share images of your favorite images with the rest of the world. Feel free to browse and explore all the cool images that humanity has to offer! Explore images by themselves in the browse section, or search the globe in the map section!
 
 
-Live-link to Pixr here: https://pixr.herokuapp.com/
+Live-link to Pixr here: https://pixr-app.herokuapp.com/
 
 ## Pixr User Guide
 
